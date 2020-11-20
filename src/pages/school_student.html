@@ -1,0 +1,120 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!--学生内容-->
+<!--<div onclick="daochu()">导出</div>-->
+<div class="allwidth_pb_label">
+	<button class="default_btn gray_btn" onclick="student.import_student_window()">批量导入学生</button>
+	&emsp; 批量更新：<select class="default_select" id="student_import_BatchUpdate">
+		<option value="s1">状态</option>
+		<option value="s2">借读</option>
+		<option value="s3">性别</option>
+		<option value="s4">学号</option>
+		<option value="s5">缴费信息</option>
+		<option value="s6">班级</option>
+	</select>
+	<button class="default_btn gray_btn" onclick="student.newly_open()">新增学生</button>
+	&emsp; | <span>学生的学级和班级</span> <select class="default_select" id="year_value">
+	</select> <select class="default_select" id="class_value">
+	</select>
+	<button class="default_btn" onclick="student.show_search('content_student')">查询</button>
+	<div class="float-right">
+		共有学生<b id="count"></b>人
+		<button class="default_btn red_btn" onclick="Men.clear_all_table('http://',table)">清空(慎重)</button>
+	</div>
+</div>
+<!--学生表-->
+<div class="pading_table hidden" id="content_student">
+    <div class="allwidth_pb_label">
+    <button class="default_btn green_btn">导出Excel</button>
+</div>
+	<table class="table_datas" id="datatable_student">
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>别名</th>
+				<th>性别</th>
+				<th>学号</th>
+                <th>考号</th>
+                <th>选考信息</th>
+                <th>学考信息</th>
+				<th>操作</th>                
+			</tr>
+		</thead>
+	</table>
+</div>
+<!--学生新增/修改窗口-->
+<script type="text/html" id="student_template">
+<form id="student" onsubmit="return false"><input type="hidden" id="code" />
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label class="allwidth_label">姓名：</label><input type="text" class="default_input" id="inputtext_01" />				
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label class="allwidth_label">别名：</label><input type="text" class="default_input" id="inputtext_02" />				
+			</div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label class="allwidth_label">性别：</label><select class="default_select" id="inputtext_03">
+					<option value="1">男</option>
+					<option value="0">女</option>
+				</select>				
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label class="allwidth_label">学号：</label><input type="text" class="default_input" id="inputtext_04" />				
+			</div>			
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-right-6">
+				<label class="allwidth_label">考号：</label><input type="text" class="default_input" id="inputtext_05" />				
+            </div>    
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label class="allwidth_label">年级：</label><select class="default_select" id="inputtext_06">
+				</select>				
+			</div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<label class="allwidth_label">行政班：</label><select class="default_select" id="inputtext_07">
+				</select>				
+			</div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <label class="allwidth_label">选课班：</label>
+                <table class="default_table" id="stu_table">
+                    <thead>
+                        <tr>
+                            <th style="width:25%">学科</th>
+                            <th style="width:50%">班级</th>
+                            <th style="width:25%">必选项</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label><input type="checkbox" class="check_checkbox" value="语文" /> 语文</label></td>
+                            <td><select class="default_select" disabled>
+                                <option>11班</option>
+                                <option>12班</option>
+                                <option>13班</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="default_select" disabled>
+                                <option>必考</option>
+                                <option>选考</option>
+                                <option>学考</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label><input type="checkbox" class="check_checkbox" value="数学" /> 数学</label></td>
+                            <td><select class="default_select" disabled>
+                                <option>11班</option>
+                                <option>12班</option>
+                                <option>13班</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="default_select" disabled>
+                                <option>必考</option>
+                                <option>选考</option>
+                                <option>学考</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+			</div> 
+</form>    
+</script>

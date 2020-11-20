@@ -1,0 +1,294 @@
+<div class="container-wrap">
+    <div class="aly-filters">
+        <div class="aly-filter">
+            <strong>考试类型</strong>
+            <ul id="examType">
+                <li class="active" data-id="0">全部</li>
+                <li data-id="1"><i class="icon-stop" style="color:#0c6"></i> 单元测试</li>
+                <li data-id="2"><i class="icon-stop" style="color:#57B5E3"></i> 月考</li>
+                <li data-id="3"><i class="icon-stop" style="color:#FCB322"></i> 模拟考</li>
+                <li data-id="4"><i class="icon-stop" style="color:#f66"></i> 期中考试</li>
+                <li data-id="5"><i class="icon-stop" style="color:#A248B6"></i> 期末考试</li>
+                <li data-id="6"><i class="icon-stop" style="color:#34495E"></i> 期初考试</li>
+            </ul>
+        </div>
+        <div class="aly-filter">
+            <strong>年级</strong>
+            <ul id="gradeType">
+                <!-- 根据学校类型进行动态切换 -->
+                <li class="active" data-id="0">全部</li>
+                <li data-id="1">一年级</li>
+                <li data-id="2">二年级</li>
+                <li data-id="3">三年级</li>
+                <li data-id="4">四年级</li>
+                <li data-id="5">五年级</li>
+                <li data-id="6">六年级</li>
+                <li data-id="7">七年级</li>
+                <li data-id="8">八年级</li>
+                <li data-id="9">九年级</li>
+                <li data-id="10">高一年级</li>
+                <li data-id="11">高二年级</li>
+                <li data-id="12">高三年级</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="alyExams"></div>
+</div>
+<script type="text/plain" id="alyExamsListTemplate">
+    {{each data item}}
+    <div class="col-md-3 col-sm-4">
+        <div class="card card-reset">
+            <div class="card-header">
+                <i class="confing_btn iconfont icon-shezhi" onclick="SCHOOL.configOpen('{{item.examId}}')"></i>
+                <h3 class="card-title">{{item.c_exam_name}}</h3>
+                <p>(考试ID:{{item.examId}})</p>
+                <p>
+                    {{if item.examWl==0}}全科{{/if}} {{if item.examWl==1}}语文{{/if}} {{if item.examWl==2}}数学{{/if}} {{if item.examWl==3}}英语{{/if}} {{if item.examWl==4}}物理{{/if}} {{if item.examWl==5}}化学{{/if}} {{if item.examWl==6}}历史{{/if}} {{if item.examWl==7}}地理{{/if}} {{if item.examWl==8}}政治{{/if}} {{if item.examWl==9}}生物{{/if}}
+                    <i class="icon-group"></i>{{item.gradeName}}{{item.c_exam_date | dateFormat 'yyyy-MM-dd'}}</p>
+            </div>
+            <div class="card-body">
+                {{include 'examUploadListTemplate' item}}
+            </div>
+            <div class="card-footer" data-id="{{item.examId}}" data-grade-nane="{{item.gradeName}}">
+                <a onclick="SCHOOL.onClickStructure(this,'{{item.c_exam_name}}')"><i class="iconfont icon-tuichu mb-1"></i> 结构</a>
+                <a onclick="SCHOOL.onClickSchsDetails(this)">详分</a>
+                <a onclick="SCHOOL.onClickSchsSelect(this)">选择题</a>
+                <a onclick="SCHOOL.onClickSchsAnalysis(this)">分析</a>
+                <a onclick="SCHOOL.onClickSchsClear(this)">清空</a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<script type="text/plain" id="examUploadListTemplate">
+    <ul class="anly-xk">
+        {{each examUploads item}}
+        <li><span class="anly-xk-degree">{{item.c_xk_name}}</span></li>
+        {{/each}}
+    </ul>
+</script>
+<script type="text/plain" id="importDataTemplaet">
+    <div class="form-group">
+        <select class="form-control form-control-sm" id="subject">
+            {{each examUploads item}}
+            <option value="{{item.c_xk_id}}">{{item.c_xk_name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-files">
+        <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M">
+    </div>
+</script>
+<script type="text/plain" id="orgsAnalysisTemplate">
+    <p class="mb-3">你确定要进行考试分析吗？</p>
+    <div class="form-group text-left">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="analy_type" id="subjectRadio1" value="0">
+            <label class="form-check-label" for="subjectRadio1">总分</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="analy_type" id="subjectRadio2" value="1" checked>
+            <label class="form-check-label" for="subjectRadio2">详分</label>
+        </div>
+    </div>
+    <div class="form-group text-left">
+        {{each examUploads item}}
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="subjectChickbox{{item.c_xk_id}}" value="{{item.c_xk_id}}" checked>
+            <label class="form-check-label" for="subjectChickbox{{item.c_xk_id}}">{{item.c_xk_name}}</label>
+        </div>
+        {{/each}}
+    </div>
+</script>
+<!-- 设置弹出框 -->
+<script type="text/html" id="config_template">
+    <div>
+        <ul class="config_parent_ul">
+            <li>
+                <div class="flex_between"><label>单科缺考定义</label><i class="iconfont icon-xiangxia"></i></div>
+                <ul class="config_children_ul">
+                    <li><input type="checkbox" id="noscore_checkbox" {{if qkdy.noScore == true}}checked{{/if}} />无分数</li>
+                    <li><input type="checkbox" id="zeroscore_checkbox" {{if qkdy.zeroScore == true}}checked{{/if}} />得分为0分</li>
+                    <li><input type="checkbox" id="betweenscore_checkbox" {{if qkdy.betweenScore.score == true}}checked{{/if}} />得分在 <input type="tel" class="default_input col-1" id="between1_input" value="{{qkdy.betweenScore.between[0]}}" /> 至 <input type="tel" class="default_input col-1" id="between2_input" value="{{qkdy.betweenScore.between[1]}}" />之间</li>
+                </ul>
+            </li>
+            <li>
+                <div class="flex_between"><label>单科缺考处理</label><i class="iconfont icon-xiangxia"></i></div>
+                <ul class="config_children_ul">
+                    <li><label><input type="radio" name="qkcl" {{if qkcl == 1}}checked{{/if}} />单科分析，总分不分析</label></li>
+                    <li><label><input type="radio" name="qkcl" {{if qkcl == 2}}checked{{/if}} />单科分析，总分分析</label></li>
+                    <li><label><input type="radio" name="qkcl" {{if qkcl == 3}}checked{{/if}} />单科总分都不分析</label></li>
+                </ul>
+            </li>
+            <li>
+                <div class="flex_between"><label>单科作弊处理</label><select class="default_input col-2" id="zbcl_select"><option value="1" {{if zbcl == 1}}selected{{/if}}>总分计入分析</option><option value="2" {{if zbcl == 2}}selected{{/if}}>总分不计入分析</option></select></div>
+            </li>
+            <li>
+                <div class="flex_between"><label>特殊学生定义</label><i class="iconfont icon-xiangxia"></i></div>
+                <ul class="config_children_ul">
+                    <li><label><input type="checkbox" id="selfstu_input" {{if tsxs.selfstu == true}}checked{{/if}} />自招生</label></li>
+                    <li><label><input type="checkbox" id="selestu_input" {{if tsxs.selestu == true}}checked{{/if}} />选课生</label></li>
+                </ul>
+            </li>
+            <li>
+                <div class="flex_between justify-left"><label>作弊学生名单</label> <input type="text" class="default_input col-6" id="cheatingStudents_input" placeholder="用，或,来分隔" value="{{cheatingStudents.join('，')}}" />&emsp;<i class="iconfont icon-xinxi2" id="tips">
+                    <div class="tip_table_div hidden">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>填写方式：</th>
+                                    <th>考号-学科编号</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">多个学生或者学科作弊请用英文半角“,“隔开；</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"> 1语文,2数学,3英语,4物理,5化学,6历史,7地理,8组织,9生物,A信息,B通用,C科学,D奥数,E技术,F音乐,G体育,H美术,I心理,J教育学(小学),K教育学(初中), </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </i></div>
+            </li>
+        </ul>
+    </div>
+</script>
+
+
+<!-- 结构弹出框 -->
+<script type="text/html" id="structure_template">
+	<div>
+		<h4 class="structure_h4">{{examTitle}}</h4>
+		<div class="structure_div">
+			<label>科    目：</label>
+				<ul id="structureul" class="structure_ul">
+				{{each subjectList}}<li data-id="{{$value.id}}" data-examname="{{$value.examName}}" data-totalscore={{$value.totalScore}}>{{$value.name}}</li>{{/each}}
+				</ul>
+		</div>
+        <div class="structure_div">
+            <label>试卷名称：</label><span class="wid_span20" id="examname">1</span>
+            <label>试卷ID：</label><span class="wid_span12" id="examid">2</span>
+            <label>总分：</label><span class="wid_span12" id="examtotalscore">3</span>
+        </div>
+        <div class="structure_div">
+            <label>数据来源：</label>
+            <span>
+                <label><input type="radio" name="sources" id="radio_check1" checked />网阅同步</label>
+                <label><input type="radio" name="sources" id="radio_check2" />手动上传</label>
+            </span>
+        </div>
+        <!--切换网阅同步/手动上传的内容-->
+        <!--网阅同步-->
+        <section id="radio_show1">
+            <div class="structure_div">
+                <label>网阅服务器：</label><span><select class="default_select"><option>多分网阅</option></select></span>
+                <label>&emsp;网阅学校：</label><span><select class="default_select"><option>200810七中育才水井坊</option></select></span>
+                <label>&emsp;网阅考试ID：</label><span><select class="default_select"><option>930七中育才-九年级-月考-20191007</option></select></span>                
+            </div>
+            <div class="structure_div">
+                <label>考试试卷ID：</label><span><select class="default_select"><option>4520语文</option></select></span>
+            </div>
+            <div class="structure_div">
+                <label>当前学校：</label><span class="wid_span20">{{schoolName}}</span>
+                <label>年级：</label><span class="wid_span12">{{grade}}</span>
+            </div>
+            <div class="structure_div">
+                <label>选择班级：</label><span><select class="default_select" id="select_class"><option>全部</option>{{each classNum}}<option value="{{$value}}">{{$value}}班</option>{{/each}}</select></span>
+                <label>&emsp;<input type="checkbox" id="allclass_check" />全选</label>               
+            </div>
+            <div class="structure_div" id="class_num">
+                    {{each classNum}}
+                        <label class="class_label"><input type="checkbox" value="{{$value}}" />{{$value}}班</label>
+                    {{/each}}
+            </div>
+            <div class="center_div"><button class="large_blue_button" onclick="SCHOOL.gain_structure()">获取考试结构</button></div>
+            <div class="structure_div t_r"><button class="width_btn blue_btn" onclick="SCHOOL.structure_import()"><i class="iconfont icon-shitiguanli"></i>导入</button> <button class="width_btn green_btn" onclick="SCHOOL.structure_export()"><i class="iconfont icon-shitiguanli"></i>导出</button> <button class="width_btn red_btn" onclick="SCHOOL.structure_clear()"><i class="iconfont icon-shitiguanli"></i>清空</button></div>
+            <div class="oveflowy">
+                <table class="structure_table">
+                    <thead>
+                        <tr>
+                            <th>网阅考试<br>编号</th>
+                            <th>内部题目<br>编号</th>
+                            <th>卷面题目<br>编号</th>
+                            <th>试题类型编号</th>
+                            <th>试题类别编号</th>
+                            <th>题目分数</th>
+                            <th>知识点编号</th>
+                            <th>能力点编号</th>
+                            <th>技能</th>
+                            <th>分卷</th>
+                            <th>客观题标准<br>答案</th>
+                            <th>选择题答案清单<br>(留空为ABCD)</th>
+                            <th>是否特殊题</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody id="structure_tbody">
+                        <tr>
+                            <td>1</td>
+                            <td>20190198</td>
+                            <td>20918726</td>
+                            <td><select class="default_select"><option>C选择题</option></select></td>
+                            <td><select class="default_select"><option>101基础知识</option></select></td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td><select class="default_select"><option>1</option></select></td>
+                            <td><select class="default_select"><option>A卷</option></select></td>
+                            <td>A</td>
+                            <td><select class="default_select"><option>ABCD</option></select></td>
+                            <td><select class="default_select"><option>是</option><option>否</option></select></td>
+                            <td>略</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <!--手动上传-->
+        <section class="hidden" id="radio_show2">
+            <div class="structure_div t_r"><button class="width_btn blue_btn" onclick="SCHOOL.manual_import()"><i class="iconfont icon-shitiguanli"></i>导入</button> <button class="width_btn green_btn" onclick="SCHOOL.manual_export()"><i class="iconfont icon-shitiguanli"></i>导出</button> <button class="width_btn red_btn" onclick="SCHOOL.manual_clear()"><i class="iconfont icon-shitiguanli"></i>清空</button></div>
+            <div class="oveflowy">
+                <table class="structure_table">
+                    <thead>
+                        <tr>
+                            <th>网阅考试<br>编号</th>
+                            <th>内部题目<br>编号</th>
+                            <th>卷面题目<br>编号</th>
+                            <th>试题类型编号</th>
+                            <th>试题类别编号</th>
+                            <th>题目分数</th>
+                            <th>知识点编号</th>
+                            <th>能力点编号</th>
+                            <th>技能</th>
+                            <th>分卷</th>
+                            <th>客观题标准<br>答案</th>
+                            <th>选择题答案清单<br>(留空为ABCD)</th>
+                            <th>是否特殊题</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody id="manual_tbody">
+                        <tr>
+                            <td>1</td>
+                            <td>20190198</td>
+                            <td>20918726</td>
+                            <td><select class="default_select"><option>C选择题</option></select></td>
+                            <td><select class="default_select"><option>101基础知识</option></select></td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td><select class="default_select"><option>1</option></select></td>
+                            <td><select class="default_select"><option>A卷</option></select></td>
+                            <td>A</td>
+                            <td><select class="default_select"><option>ABCD</option></select></td>
+                            <td><select class="default_select"><option>是</option><option>否</option></select></td>
+                            <td>略</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+	</div>
+</script>

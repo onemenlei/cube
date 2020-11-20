@@ -1,0 +1,40 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_style_div search_count_div">
+    <div class="center_in mtb">
+        <input type="tel" class="default_input seach_input" id="search_school_input" placeholder="请输入学校编号" /><button class="default_btn" id="search_school_button">查询</button>
+    </div>
+</div>
+<article class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_style_div hidden" id="showDIV">
+    <div class="allwidth_pb_label filter flex_between">
+        <main class="flex_align_center">
+        <div class="float-left">时间：</div>
+        <div class="float-left" id="switch_time">
+            <span class="btn btn-white btn-sm" data-code="1">今天</span>
+            <span class="btn btn-white btn-sm" data-code="2">本周</span>
+            <span class="btn btn-white btn-sm" data-code="3">本月</span>
+            <span class="btn btn-white btn-sm" data-code="-1">自定义</span>
+        </div>
+        <div class="display-flex align-items-center hidden" id="customData">
+            <input type="date" class="default_input" placeholder="开始日期" id="startTime" />-<input type="date" class="default_input" placeholder="结束日期" id="endTime" />&emsp;<button class="default_btn" id="searchTime">查询</button>
+        </div>
+        </main>    
+        <div class="flex_align_center">
+            <input type="text" class="default_input" id="search_value" />&emsp;<button class="default_btn red_btn" id="table_search">搜索</button>
+        </div>
+    </div>
+    <!--平安到校信息表-->
+    <div class="pading_table">
+                <table class="table_datas" id="datatable_dxsj">
+                    <thead>
+                        <tr>
+                            <th>年级</th>
+                            <th>班级</th>
+                            <th>学生姓名</th>
+                            <th>家长联系方式</th>
+                            <th>打卡时间</th>
+                            <th>打卡状态</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+</article>    

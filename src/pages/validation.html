@@ -1,0 +1,63 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/model.js"></script>
+</head>
+
+<body>
+	<div class="container">
+    <form>
+        <div class="form-group">
+            <input class="v-text form-control" type="text">
+            <span class="_error" style="display: none">名字不能为空</span>
+        </div>
+        <div class="form-group">
+            <input class="v-phone form-control" type="tel" placeholder="手机号">
+            <span class="_error" style="display: none">手机号不能为空</span>
+        </div>
+        <div class="form-group">
+            <input class="v-tel form-control" type="tel" placeholder="电话号码 000-00000000">
+            <span class="_error" style="display: none">电话号码不能为空</span>
+        </div>
+        <div class="form-group">
+            <input class="v-email form-control" type="email" placeholder="邮件地址">
+            <span class="_error" style="display: none">邮件地址不能为空</span>
+        </div>
+        <div class="form-group">
+            <input class="v-number form-control" type="number" placeholder="编号为数字">
+            <span class="_error" style="display: none">内容不能为空</span>
+        </div>
+        <div class="form-group">
+            <input class="v-card form-control" type="number" placeholder="简易的身份证校验">
+            <span class="_error" style="display: none">内容不能为空</span>
+        </div>
+        <div class="form-group">
+            <input class="v-cards form-control" type="number" placeholder="严格的身份证校验">
+            <span class="_error" style="display: none">内容不能为空</span>
+        </div>
+
+        <button type="button" id="v-submit">提交</button>
+    </form>
+    <pre>
+	input type类型
+	text 			文本
+	date 			日期
+	datetime		日期
+	email			E-mail
+	month			月份
+	number			数字
+	search			搜索
+	tel 			电话
+	time 			时间
+	url 			网址
+    </pre>
+    </div>
+</body>
+
+</html>

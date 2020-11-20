@@ -1,0 +1,76 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<div class="allwidth_pb_label">
+    <button class="default_btn gray_btn" onclick="classs.import_class_window()">批量导入班级</button>&emsp;
+    <button class="default_btn gray_btn" onclick="classs.newly_open()">新增班级</button>&emsp;
+    <button class="default_btn gray_btn" onclick="open_new_popup('batch_newly_class_popup')">批量创建班级</button>
+    <div style="display:inline-block">
+        <select class="default_select" id="school1"></select>
+        <select class="default_select hidden" id="school2"></select>
+        <select class="default_select hidden" id="school3"></select>
+    </div>
+    <div class="float-right">
+		<button class="default_btn red_btn" id="clear_id" onclick="Men.clear_all_table('http://')">清空(慎重)</button>
+	</div>
+</div>
+<div class="allwidth_pb_label">
+        <button class="default_btn green_btn">导出Excel</button>
+        <div class="float-right">
+		共有行政班：5个 选课班：10个
+	   </div>
+    </div>
+<!--班级表-->
+<div class="pading_table">
+    <table class="table_datas" id="datatable_class">
+        <thead>
+            <tr>
+                <th>学级</th>
+                <th>班级</th>
+                <th>班级别名</th>
+                <th>班级属性</th>
+                <th>班级类型</th>
+                <th>班级标签</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/html" id="class_template">
+    <form id="class" onsubmit="return false"><input type="hidden" id="code" />
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">学级<em class="star_em"></em></label><select class="default_select" name="g1" id="inputtext_02" onchange="classs.check_newlyclass()">
+                                            <option value="18">2018级</option>
+                                            <option value="17">2017级</option>
+                                            <option value="16">2016级</option>
+                                            <option value="15">2015级</option>
+                                        </select>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">班级<em class="star_em"></em></label>
+                <input type="text" class="default_input" id="inputtext_03" name="g3" placeholder="请输入班级" onblur="classs.check_newlyclass()"  onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" required />
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">班级别名<em class="star_em"></em></label>
+                <input type="text" class="default_input" id="inputtext_04" name="g4" placeholder="请输入别名" required />
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">班级属性<em class="star_em"></em></label><select class="default_select" id="inputtext_05">
+                                            <option value="10">行政班</option>
+                                            <option value="20">选课班</option>
+                                        </select>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">班级类型<em class="star_em"></em></label><select class="default_select" id="inputtext_06">
+                                            <option value="112801001">全科</option>
+                                            <option value="112801002">文科</option>
+                                            <option value="112801003">理科</option>
+                                        </select>
+            </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">考试类型<em class="star_em"></em></label><select class="default_select">
+                                <option>必考</option>
+                                <option>选考</option>
+                                <option>学考</option>
+                                </select>
+            </div>
+        
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><label class="allwidth_label">课程<em class="star_em"></em></label>
+                <div class="checkbox_group_div">
+                </div>
+            </div>
+    </form>    
+</script>

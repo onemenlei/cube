@@ -1,0 +1,51 @@
+<div class="container-wrap">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">学级</span>
+                </div>
+                <select class="form-control" id="filterYearIn">
+                    <option value="12">2012</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">班级</span>
+                </div>
+                <select class="form-control" id="filterClass">
+                    <option value="51877712001">1班</option>
+                    <option value="51877712002">2班</option>
+                    <option value="51877712003">3班</option>
+                    <option value="51877712004">4班</option>
+                    <option value="51877712005">5班</option>
+                    <option value="51877712006">6班</option>
+                    <option value="51877712007">7班</option>
+                    <option value="51877712008">8班</option>
+                    <option value="51877712099">99班</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <button type="button" class="btn btn-primary" onclick="PATRIARCH.onClockInquireInfo()">查询</button>
+            <button type="button" class="btn btn-success" onclick="PATRIARCH.onClickBatchPayment()">批量缴费</button>
+            <button type="button" class="btn btn-warning" onclick="PATRIARCH.onClickInfoDownload()">下载家长信息</button>
+        </div>
+    </div>
+    <div class="table-responsive pading_table">
+        <table class="table_datas table-reset" id="examContent">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>电话</th>
+                    <th>主账户</th>
+                    <th>学生</th>
+                    <th>注册状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>

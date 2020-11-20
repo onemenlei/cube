@@ -1,0 +1,99 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<div class="allwidth_pb_label">
+    <button class="default_btn gray_btn" onclick="open_new_popup('import_role_popup')">批量导入角色教师</button>
+    <button class="default_btn gray_btn" onclick="open_new_popup('newly_role_popup')">新建角色教师</button>
+    <div class="float-right">
+        共有教师<b>1</b>名
+    </div>
+</div>
+<!--角色教师表-->
+<div class="pading_table">
+    <table class="table_datas" id="datatable_role">
+        <thead>
+            <tr>
+                <th>角色名</th>
+                <th>帐户名</th>
+                <th>角色</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+
+<!--弹出窗口1 批量导入角色教师-->
+<div class="popup_background" id="import_role_popup">
+    <div class="center_popup">
+        <h3>批量导入角色教师</h3>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form_div">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <input type="file" id="input-file-now" class="dropify-fr" data-default-file="" />
+            </div>
+            <div class="center_button_div">
+                <button class="default_btn edit_row_btn" onclick="">确定</button>
+                <button class="default_btn anti_btn clicked close_btn" onclick="close_new_popup(event)">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹出窗口2 新建角色教师-->
+<div class="popup_background" id="newly_role_popup">
+    <div class="center_popup">
+        <h3>新建角色教师</h3>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form_div">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label>教师职务：</label><select class="default_select" id="inputtext_01">
+                                            <option>学科教师</option>
+                                            <option>班主任</option>
+                                            <option>年级组长</option>
+                                            <option>备课组长</option><option>教务管理</option><option>小学教师</option><option>校长</option>
+                                        </select>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label>学科：</label><select class="default_select" id="inputtext_02">
+                                            <option>语文</option>
+                                            <option>班主任</option>
+                                            <option>年级组长</option>
+                                            <option>备课组长</option>
+                                        </select>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label>学级：</label><select class="default_select" id="inputtext_03">
+                                            <option>2017</option>
+                                            <option>班主任</option>
+                                            <option>年级组长</option>
+                                            <option>备课组长</option>
+                                        </select>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label>班级：</label><select class="default_select" id="inputtext_04">
+                                            <option>1班</option>
+                                            <option>班主任</option>
+                                            <option>年级组长</option>
+                                            <option>备课组长</option>
+                                        </select>
+            </div>
+            <div class="center_button_div">
+                <button class="default_btn edit_row_btn" onclick="">提交</button>
+                <button class="default_btn anti_btn clicked close_btn" onclick="close_new_popup(event)">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹出窗口3 修改角色教师属性-->
+<div class="popup_background" id="edit_role_popup">
+    <div class="center_popup">
+        <h3>修改角色教师属性</h3>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form_div">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label>系统别名：</label>
+                <input type="text" class="default_input" id="role_input_01" /><div class="error_div">错误提示</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label>状态：</label><select class="default_select" id="inputtext_02">
+                                            <option>正常</option>
+                                            <option>停用</option>
+                                        </select>
+            </div>        
+            <div class="center_button_div">
+                <button class="default_btn edit_row_btn" onclick="">确定</button>
+                <button class="default_btn anti_btn clicked close_btn" onclick="close_new_popup(event)">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

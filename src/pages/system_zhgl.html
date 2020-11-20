@@ -1,0 +1,112 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!--帐户管理-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_style_div">
+    <ul class="label_top_menu_ul" id="zhgl_ul">
+                        <li>账号管理</li><li>账号创建</li>
+    </ul>    
+    <div>
+        <!--系统管理 开始-->
+        <article>
+           <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <button class="default_btn red_btn" onclick="open_new_popup('open_admin_popup')">开户</button>&emsp;<button class="default_btn yellow_btn" onclick="open_new_popup('open_group_popup')">开通组用户</button>
+    </div>-->
+    <div class="pading_table">
+    <table class="table_datas" id="datatable_zhgl">
+        <thead>
+            <tr>
+                <th>类型</th>
+                <th>角色</th>
+                <th>帐户</th>
+                <th>姓名</th>
+                <th>地区</th>
+                <th>联系电话</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+    </table>
+    </div> 
+        </article>
+        <!--系统管理 结束-->
+        <!--系统创建 开始-->
+        <article>
+            <form id="zhgl1" onsubmit="return false">
+                            <fieldset class="school_fieldset">
+                                <legend>创建账户</legend>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form_div">
+                                    <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                                        <label class="allwidth_label">账户类型<em class="star_em"></em></label>
+                                        <select class="default_select">
+                                            <option>牧分</option>
+                                            <option>多分</option>
+                                            <option>渠道</option>
+                                        </select> 
+                                         
+                                    </div>
+                                    <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                                        <label class="allwidth_label">用户名<em class="star_em"></em></label>
+                                        <input type="text" class="default_input" name="i1" required />
+                                    </div>
+                                    <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                                        <label class="allwidth_label">管理者名称<em class="star_em"></em></label>
+                                        <input type="text" class="default_input" name="i2" required />
+                                    </div>
+                                    <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                                        <label class="allwidth_label">密码<em class="star_em"></em></label>
+                                        <input type="text" class="default_input" name="i3" required />
+                                    </div>
+                                    <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                                        <label class="allwidth_label">地区<em class="star_em"></em></label>
+                                        <input type="text" class="default_input" name="i4" required />
+                                    </div>
+                                    <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                                        <label class="allwidth_label">联系方式<em class="star_em"></em></label>
+                                        <input type="text" class="default_input" />
+                                    </div>
+                                    <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                                        <label class="allwidth_label">管理学校<em class="star_em"></em></label>
+                                        <span class="btn btn-xs btn-success" onclick="zhgl.glxx_open()">管理学校</span>
+                                    </div>
+                                    <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                                        <label class="allwidth_label">管理机构<em class="star_em"></em></label>
+                                        <input type="text" class="default_input" />
+                                    </div>                                    
+                                    <div class="newly_center_button_div">
+                                        <button class="default_btn" type="submit" click="zhgl.newly_btn()">创建</button>
+                                        <button class="default_btn anti_btn clicked" type="reset">重置</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            </form> 
+        </article>
+        <!--系统创建 结束-->        
+    </div>
+       
+</div>
+
+<script type="text/html" id="zhgl_template">
+    <form id="zhgl" onsubmit="return false"><input type="hidden" id="code" />
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">帐户类型<em class="star_em"></em></label><select class="default_select" id="inputtext_01">
+            <option>牧分</option><option>多分</option>
+    </select></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">用户名<em class="star_em"></em></label><input type="text" class="default_input" id="inputtext_02" placeholder="" /></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">管理者名称<em class="star_em"></em></label><input type="text" class="default_input" id="inputtext_03" placeholder="" /></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">密码<em class="star_em"></em></label><input type="password" class="default_input" id="inputtext_04" /></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">地区<em class="star_em"></em></label><input type="text" class="default_input" id="inputtext_05" /></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">联系方式<em class="star_em"></em></label><input type="text" class="default_input" id="inputtext_06" placeholder="" /></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">管理学校<em class="star_em"></em></label><input type="text" class="default_input" id="inputtext_08" /></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">管理机构<em class="star_em"></em></label><input type="text" class="default_input" id="inputtext_07" /></div>
+    </form>
+</script>
+ 
+
+<!--弹出窗口 管理学校-->
+<script type="text/html" id="glxx_template">
+    <form id="glxx" onsubmit="return false"><input type="hidden" id="code" />
+        <div class="col-lg-6 col-md-6 offset-3">
+                <div class="manager_search_div">
+                    <span>搜索：</span><input type="text" class="default_input" placeholder="请输入学校名检索" id="input-check-node" />
+                </div>            
+            <div id="treeview-checkable" class=""></div>
+            </div> 
+    </form>
+</script>

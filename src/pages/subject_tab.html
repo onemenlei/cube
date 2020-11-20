@@ -1,0 +1,142 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!--学科、考试类型、试题类型、试题类别、知识点、能力点-->
+<nav class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_style_div" style="display:flex;justify-content: center;">
+    <ul id="subject_tab_menu" class="top_tab_menu"></ul> 
+</nav>
+<article id="subject_content" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_style_div">
+    <!--学科-->
+    <div>
+        <div><button class="default_btn gray_btn" onclick="subject_tab.newly_open1()">创建学科</button></div>
+        <div class="pading_table">
+                <table class="table_datas" id="datatable_subject">
+                    <thead>
+                        <tr>
+                            <th>学科编号</th>
+                            <th>学科名称</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                </table>
+        </div>
+        <!--弹出窗口 创建/修改学科窗口-->
+        <script type="text/html" id="subject_template">
+            <form id="subject_form" onsubmit="return false"><input type="hidden" id="code" />
+                    <div class="col-12"><label class="allwidth_label">学科编号<em class="star_em"></em></label><input type="text" class="default_input" name="a1" id="inputtext_01" required /></div>
+                    <div class="col-12"><label class="allwidth_label">学科名称<em class="star_em"></em></label><input type="text" class="default_input" name="a2" id="inputtext_02" required /> </div>
+            </form>
+        </script>
+    </div>
+    <!--考试类型-->
+    <div>
+        <div><button class="default_btn gray_btn" onclick="subject_tab.newly_open2()">创建考试类型</button></div>
+        <div class="pading_table">
+                <table class="table_datas" id="datatable_examination_type">
+                    <thead>
+                        <tr>
+                            <th>考试类型编号</th>
+                            <th>考试类型名称</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                </table>
+        </div>
+        <!--弹出窗口 创建/修改考试类型窗口-->
+        <script type="text/html" id="examination_type_template">
+            <form id="subject_form" onsubmit="return false"><input type="hidden" id="code" />
+                    <div class="col-12"><label class="allwidth_label">考试类型编号<em class="star_em"></em></label><input type="text" class="default_input" name="a1" id="inputtext_01" required /></div>
+                    <div class="col-12"><label class="allwidth_label">考试类型名称<em class="star_em"></em></label><input type="text" class="default_input" name="a2" id="inputtext_02" required /> </div>
+            </form>
+        </script>
+    </div>
+    <!--试题类型-->
+    <div>
+        <div><button class="default_btn gray_btn" onclick="subject_tab.newly_open3()">创建试题类型</button></div>
+        <div class="pading_table">
+                <table class="table_datas" id="datatable_test_type">
+                    <thead>
+                        <tr>
+                            <th>试题类型编号</th>
+                            <th>试题类型名称</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                </table>
+        </div>
+        <!--弹出窗口 创建/修改试题类型窗口-->
+        <script type="text/html" id="test_type_template">
+            <form id="subject_form" onsubmit="return false"><input type="hidden" id="code" />
+                    <div class="col-12"><label class="allwidth_label">试题类型编号<em class="star_em"></em></label><input type="text" class="default_input" name="a1" id="inputtext_01" required /></div>
+                    <div class="col-12"><label class="allwidth_label">试题类型名称<em class="star_em"></em></label><input type="text" class="default_input" name="a2" id="inputtext_02" required /> </div>
+            </form>
+        </script>
+    </div>
+    <!--试题类别-->
+    <div>
+        <div><button class="default_btn gray_btn" onclick="subject_tab.newly_open4()">创建试题类别</button></div>
+        <div class="pading_table">
+                <table class="table_datas" id="datatable_category_type">
+                    <thead>
+                        <tr>
+                            <th>试题类别编号</th>
+                            <th>试题类别名称</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                </table>
+        </div>
+        <!--弹出窗口 创建/修改试题类别窗口-->
+        <script type="text/html" id="test_category_template">
+            <form id="subject_form" onsubmit="return false"><input type="hidden" id="code" />
+                    <div class="col-12"><label class="allwidth_label">试题类别编号<em class="star_em"></em></label><input type="text" class="default_input" name="a1" id="inputtext_01" required /></div>
+                    <div class="col-12"><label class="allwidth_label">试题类别名称<em class="star_em"></em></label><input type="text" class="default_input" name="a2" id="inputtext_02" required /> </div>
+            </form>
+        </script>
+    </div>
+    <!--知识点-->
+    <div>
+        <div class="allwidth_pb_label">
+            <button class="default_btn gray_btn" onclick="subject_tab.newly_open5()">创建知识点</button> 知识点体系 <select class="default_input" id="zsd_select1"></select>
+                科目 <select class="default_input" id="zsd_select2"></select>
+                <button class="default_btn" onclick="subject_tab.reset_treegrid5()">查询</button>
+            <div class="float-right"> 筛选名称 <input type="text" class="default_input" onkeyup="subject_tab.search_zsd(this)" />                
+            </div>
+        </div>
+        <div class="pading_table">
+                <table class="table-treegrid dataTable no-footer" id="treegrid_knowledgePoints">                    
+                </table>
+        </div>
+        <!--弹出窗口 创建/修改试题类别窗口-->
+        <script type="text/html" id="knowledgePoints_template">
+            <form id="subject_form" onsubmit="return false"><input type="hidden" id="code" /><input type="hidden" id="Parentcode" />
+                <!--ID和层级是算出来的，没必要填写-->
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">知识点名称<em class="star_em"></em></label><input type="text" class="default_input" name="a1" id="inputtext_01" required /> </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">知识点体系<em class="star_em"></em></label><select class="default_input" id="inputtext_02"></select></div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">科目<em class="star_em"></em></label><select class="default_input" id="inputtext_03"></select></div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">知识点编号<em class="star_em"></em></label><input type="text" class="default_input" name="a4" id="inputtext_04" required /></div>
+            </form>
+        </script>
+    </div>
+    <!--能力点-->
+    <div>
+        <div class="allwidth_pb_label">
+            <button class="default_btn gray_btn" onclick="subject_tab.newly_open6()">创建知识点</button> 能力点体系 <select class="default_input" id="nld_select1"></select>
+                科目 <select class="default_input" id="nld_select2"></select>
+                <button class="default_btn" onclick="subject_tab.reset_treegrid6()">查询</button>
+            <div class="float-right"> 筛选名称 <input type="text" class="default_input" onkeyup="subject_tab.search_nld(this)" />                
+            </div>
+        </div>
+        <div class="pading_table">
+                <table class="table-treegrid dataTable no-footer" id="treegrid_capabilityPoints">                    
+                </table>
+        </div>
+        <!--弹出窗口 创建/修改试题类别窗口-->
+        <script type="text/html" id="capabilityPoints_template">
+            <form id="subject_form" onsubmit="return false"><input type="hidden" id="code" /><input type="hidden" id="Parentcode" />
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">能力点名称<em class="star_em"></em></label><input type="text" class="default_input" name="a1" id="inputtext_01" required /> </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">能力点体系<em class="star_em"></em></label><select class="default_input" id="inputtext_02"></select></div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">科目<em class="star_em"></em></label><select class="default_input" id="inputtext_03"></select></div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">能力点编号<em class="star_em"></em></label><input type="text" class="default_input" name="a4" id="inputtext_04" required /></div>
+            </form>
+        </script>
+    </div>
+</article>

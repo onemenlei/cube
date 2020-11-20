@@ -1,0 +1,55 @@
+<div class="container-wrap">
+    <div class="table-responsive pading_table">
+        <table class="table_datas table-reset" id="scoreContent">
+            <thead>
+                <tr>
+                    <th>考试名称</th>
+                    <th>年级</th>
+                    <th>文理科</th>
+                    <th>建立日期</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script type="text/html" id="scoreTemplate">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label col-form-label-sm">选择考试：</label>
+        <div class="col-sm-10">
+            <select class="form-control form-control-sm" id="select"></select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label col-form-label-sm">项目ID：</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext col-form-label-sm" id="hyExamId" readonly>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label col-form-label-sm">当前学校：</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext col-form-label-sm" id="schName" readonly>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label col-form-label-sm">考试名称：</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext col-form-label-sm" id="hyExamName" readonly>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label col-form-label-sm">选择需分析的学科：</label>
+        <div class="form-group" id="subject"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label col-form-label-sm">记为缺考学生的学号（多人中间以逗号隔开）：</label>
+        <input type="text" class="form-control col-form-label-sm">
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="A1" value="1">
+            <label class="form-check-label" for="A1">零分不记缺考</label>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,233 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<div class="allwidth_pb_label">
+    <button class="default_btn gray_btn" onclick="teacher.import_teacher_window()">批量导入教师</button>
+    <button class="default_btn gray_btn" onclick="teacher.import_teacher_phone_window()">导入教师手机</button>
+    <button class="default_btn gray_btn" onclick="teacher.import_teacher_relation_window()">批量关联教师角色</button>
+    <button class="default_btn gray_btn" onclick="teacher.newly_open()">新增教师</button>
+    <!--
+    <button class="default_btn gray_btn">批量导入实体教师</button>
+    
+    <select class="default_input">
+                <option>班主任和任课教师</option>
+                <option>其他教师</option>
+            </select>-->
+    <div class="float-right">
+		共有教师<b id="count">1</b>人
+		<button class="default_btn red_btn" onclick="Men.clear_all_table('http://',table)">清空(慎重)</button>
+	</div>
+</div>
+
+    <!--切换按钮-->
+    <div class="allwidth_pb_label">
+        <button class="default_btn white_btn" id="switching_content">切换</button>
+        <button class="default_btn green_btn">导出Excel</button>
+    </div>
+<article id="switched_content">
+    <!--切换1-->
+    <div>
+        <!--教师表-->
+<div class="pading_table">
+	<table class="table_datas" id="datatable_teacher">
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>别名</th>
+                <th>性别</th>
+				<th>电话</th>
+                <th>类型</th>
+				<th>角色</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+	</table>
+</div>
+    </div>
+    <!--切换1 END-->
+    <!--切换2-->
+    <div class="hidden">
+        <ul id="subject_project_ul">            
+            <li data-code="10">
+                <i class="iconfont icon-fenxiqingkuanghuizong"></i>
+                <span>管理员</span>
+            </li>
+            <li data-code="20">
+                <i class="iconfont icon-boshimao"></i>
+                <span>校长</span>
+            </li>
+            <li data-code="21">
+                <i class="iconfont icon-medical__easyiconnet"></i>
+                <span>教务</span>
+            </li>
+            <li data-code="30">
+                <i class="iconfont icon-zuzhiguanli"></i>
+                <span>年级组长</span>
+            </li>
+            <li data-code="40">
+                <i class="iconfont icon-xuexiaoguanli"></i>
+                <span>教研组长</span>
+            </li>
+            <li data-code="41">
+                <i class="iconfont icon-ai-connection"></i>
+                <span>备课组长</span>
+            </li>
+            <li data-code="31">
+                <i class="iconfont icon-rencai"></i>
+                <span>班主任</span>
+            </li>
+            <li data-code="50" data-subjectcode="01">
+                <i class="iconfont icon-zhongwenyuyan"></i>
+                <span>语文</span>
+            </li>
+            <li data-code="50" data-subjectcode="02">
+                <i class="iconfont icon-shu"></i>
+                <span>数学</span>
+            </li>
+            <li data-code="50" data-subjectcode="03">
+                <i class="iconfont icon-yingyu"></i>
+                <span>英语</span>
+            </li>
+            <li data-code="50" data-subjectcode="04">
+                <i class="iconfont icon-physics-world"></i>
+                <span>物理</span>
+            </li>
+            <li data-code="50" data-subjectcode="05">
+                <i class="iconfont icon-huaxuechemistry10"></i>
+                <span>化学</span>
+            </li>            
+            <li data-code="50" data-subjectcode="06">
+                <i class="iconfont icon-taiyang_sun62"></i>
+                <span>历史</span>
+            </li>
+            <li data-code="50" data-subjectcode="07">
+                <i class="iconfont icon-kongjiandili"></i>
+                <span>地理</span>
+            </li>
+            <li data-code="50" data-subjectcode="08">
+                <i class="iconfont icon-xianweijing"></i>
+                <span>生物</span>
+            </li>
+            <li data-code="50" data-subjectcode="09">
+                <i class="iconfont icon-zhengzhi"></i>
+                <span>政治</span>
+            </li>
+            <li data-code="50" data-subjectcode="10">
+                <i class="iconfont icon-tiyu"></i>
+                <span>体育</span>
+            </li>
+            <li data-code="50" data-subjectcode="11">
+                <i class="iconfont icon-xinlixue"></i>
+                <span>心理</span>
+            </li>
+            <li data-code="50" data-subjectcode="12">
+                <i class="iconfont icon-huihuaban"></i>
+                <span>美术</span>
+            </li>
+            <li data-code="50" data-subjectcode="13">
+                <i class="iconfont icon-yinle"></i>
+                <span>音乐</span>
+            </li>
+            <li data-code="50" data-subjectcode="14">
+                <i class="iconfont icon-xinxi2"></i>
+                <span>信息</span>
+            </li>
+            <li data-code="50" data-subjectcode="15">
+                <i class="iconfont icon-jishuzhichizhichizhinengkefuzhinengfuwuzhinengzhichi"></i>
+                <span>技术</span>
+            </li>
+            <li data-code="90" data-subjectcode="16">
+                <i class="iconfont icon-huihuilicaishi"></i>
+                <span>教职工</span>
+            </li>
+        </ul>
+        <article id="subject_project_article">            
+        </article>        
+    </div>
+    <!--切换2 END-->
+</article>
+
+<!--新增/修改教师-->
+<script type="text/html" id="teacher_template">
+    <form id="teacher" onsubmit="return false"><input type="hidden" id="code" />
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">姓名：</label><input type="text" class="default_input" id="inputtext_01" name="g1" required />                
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">别名：</label><input type="text" class="default_input" id="inputtext_02" name="g2" required />                
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">性别：</label><select class="default_select" id="inputtext_03">
+                                            <option>男</option>
+                                            <option>女</option>
+                                        </select>
+                
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">电话：</label><input type="text" class="default_input" id="inputtext_04" />                
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">类型：</label><select class="default_select" id="inputtext_05">
+                                            <option>正式</option>
+                                            <option>非正式</option>
+                                        </select>
+                
+            </div>
+            <div class="hr_line"></div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <label class="allwidth_label">角色关联：</label>
+                <div class="role_left">
+                    <div id="teacher_role01" class="folstyle">
+                <span>角色：</span>
+                <select class="default_select Wid10">
+                </select>
+                        </div>
+                    <div id="teacher_role02" class="folstyle hidden">
+                <span>年级：</span>
+                <select class="default_select Wid10">
+                </select>
+                        </div>
+                    <div id="teacher_role03" class="folstyle hidden">
+                <span>班级：</span>
+                <select class="default_select Wid10">
+                </select>
+                        </div>
+                    <div id="teacher_role04" class="folstyle hidden">
+                <span>学科：</span>
+                <select class="default_select Wid10">
+                </select>
+                        </div>
+                    <div class="folstyle text-center">
+                <button class="default_btn green_btn" id="add_teacher_role" type="button">添加</button>
+                    </div>
+                </div>    
+                <div class="role_right focus_list_div" id="content_teacher_role"><ul></ul></div>
+            </div>  
+    </form>    
+</script>
+<!-- 短信 -->
+<script type="text/html" id="shortmessage_template">
+    <div class="alert alert-info">班主任和任课老师默认具备向任教班级学生发送短信的权限。<br>短信权限是居于教师绑定的角色创建。</div>
+    <fieldset class="message_fieldset">
+        <legend>
+            <label><input type="checkbox" class="allow" checked />允许发送短信息到<span class="green-color">学生</span></label>
+        </legend>
+        <section>
+        <div><label><input type="checkbox" class="all_check" />允许发送短消息到全年级学生</label></div>
+        <div>允许发送短消息的年级范围</div>
+        <div class="alert" id="student_select">
+            {{each model}}
+            <label><input type="checkbox" value="{{$value.grdCode}}" {{if $value.checked}}checked{{/if}} />{{$value.grdAlias}}</label>
+            {{/each}}
+        </div>
+        </section> 
+    </fieldset>
+    <br>
+    <fieldset class="message_fieldset">
+        <legend>
+            <label><input type="checkbox" class="allow" checked />允许发送短信息到<span class="red-color">教师</span></label>
+        </legend>
+        <section>
+        <div><label><input type="checkbox" class="all_check" />允许发送短消息到全年级教师</label></div>
+        <div>允许发送短消息的年级范围</div>
+        <div class="alert" id="teacher_select">
+            {{each tmodel}}
+            <label><input type="checkbox" value="{{$value.grdCode}}" {{if $value.checked}}checked{{/if}} />{{$value.grdAlias}}</label>
+            {{/each}}
+        </div>
+        </section> 
+    </fieldset>
+</script>

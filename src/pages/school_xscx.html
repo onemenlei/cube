@@ -1,0 +1,45 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!--学校查询-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_style_div search_count_div">
+    <div class="col-lg-4  col-md-4 col-sm-12 col-xs-12">请选择省或直辖市：<select class="default_select">
+        <option>上海</option><option>四川</option>
+        </select>
+    </div>
+    <div class="col-lg-4  col-md-4 col-sm-12 col-xs-12">请选择市区：<select class="default_select">
+        <option>成都市</option><option>资阳市</option>
+        </select>
+    </div>
+    <div class="col-lg-4  col-md-4 col-sm-12 col-xs-12">请选择学校：<select class="default_select">
+        <option>试验中学</option><option>资阳中学</option>
+        </select>
+    </div> 
+<em class="hr_line"></em>
+    <div class="center_in mtb">
+        请选择年级：
+        <select class="default_select">
+        <option>一年级</option><option>二年级</option>
+        </select>&emsp;&emsp;&emsp;
+        请选择搜索条件：
+        <label><input type="radio" name="radio1" value="1" checked="checked">姓名</label>&emsp;
+        <label><input type="radio" name="radio1" value="2">拼音</label>
+    </div>
+    <div class="center_in">
+        <input type="text" class="default_input seach_input" id="search_student_input" placeholder="请输入学生姓名" /><button class="default_btn" id="search_student_button">查找</button>
+    </div>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_style_div">
+    <div class="pading_table">
+    <table class="table_datas" id="datatable_xscx">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>别名</th>
+                <th>学号</th>
+                <th>学级</th>
+                <th>班级</th>
+                <th>班级ID</th>
+            </tr>
+        </thead>
+    </table>
+    </div>
+</div>    

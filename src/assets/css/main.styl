@@ -1,0 +1,1183 @@
+@charset "utf-8";
+
+//@import "media.styl" 
+@import "color.styl"
+@import "bootstrap.styl" 
+@import "iconfont.styl" 
+@import "public.styl" 
+@import "reset.styl"
+//小丁common
+@import "common.styl"
+@import "jquery.steps.min.styl"
+//查看图片插件
+@import "viewer.min.css"
+//文件上传插件
+@import "dropify.min.styl"
+//多文件上传插件
+@import "ssi-uploader.min.styl"
+//datataables
+@import "jquery.dataTables.styl"
+//zTree插件
+//@import "https://cdn.bootcss.com/zTree.v3/3.5.29/css/zTreeStyle/zTreeStyle.min.css"
+@import "zTreeStyle.min.styl"
+//多选下拉框插件
+@import "example-styles.styl"
+//头部
+.cube_header
+    background $first-color    
+    background radial-gradient(circle,#3e9ffe 0%,rgba(0,0,0,1) 50%,#3e9ffe 100%)
+    background linear-gradient(to top,#4facfe 30%,#76b9f3 55%)
+    background linear-gradient(to top,#4798f5,#4e97f3 17%,#5093ee 40%,#589af2 53%,#6dabf9 67%,#8dc3fe)
+    color #fff
+    padding 0 15px
+    height 66px
+    line-height @height
+    display flex
+    justify-content space-between
+    align-items center
+    box-shadow 0 1px 5px rgba(0,0,0,.1)
+    position fixed
+    z-index 5
+    top 0
+    width 100%
+    >div
+        display flex
+        justify-content space-between
+        align-items center
+        a.header_logo
+            display block
+            height 46px
+            margin 0 40px 0 20px
+            img
+                max-height 100%
+        nav
+            height 66px
+            overflow auto
+            ul.header_nav_ul
+                float left
+                width 100%
+                min-width 700px
+                li
+                    float left
+                    padding 0 20px
+                    text-align center
+                    cursor pointer
+                    transition .3s all
+                    position relative
+                    &:after
+                        position absolute                       
+                        left 20px
+                        bottom 30%
+                        right 20px
+                        height 2px
+                        background #fff
+                    &:hover:after,&.selected:after
+                        content ""
+    >nav
+        height @height
+        min-width 100px
+        >a
+            display inline-block
+            color #fff
+            font-size 18px
+            margin 0 4px
+            &:hover
+                position relative
+                top -2px
+                text-shadow 1px 1px 1px rgba(0,0,0,.3)
+//尾部
+.cube_footer
+    background #e4e4e4 url('../img/logo下.png') no-repeat center center
+    background-size contain
+    border-top .5rem solid #f3f3f3
+    height 40px
+    z-index 3
+//内容
+.cube_article
+    margin-top 5px
+    padding-top 66px
+    background #f1f5f8
+    min-height 88vh    
+    &.slide-nav-toggle
+        .cube_aside
+            transform translateX(-96%)
+            &:after
+                position absolute
+        .cube_right_article
+            padding-left 0
+//内容左边
+.cube_aside
+    width 250px
+    padding-bottom 100px
+    background #fff
+    box-shadow 1px 0 5px rgba(0,0,0,.1)
+    position fixed
+    z-index 5
+    transition .3s all
+    min-height 100%
+    &:after
+        content ""
+        position static
+        top 0
+        left 0
+        right 0
+        bottom 0
+        background #000
+    .header_message
+        display flex
+        flex-flow column wrap
+        align-items center
+        justify-content center
+        padding 35px 0 10px
+        position relative
+        img:first-child
+            width 60px
+            height @width
+            border-radius 50%
+            overflow hidden
+        label
+            background $first-color
+            color #fff
+            font-size 16px
+            border 1px solid #6089d4
+            padding 2px 4px
+            margin 10px 0
+        span
+            margin-bottom 4px
+//内容右边
+.cube_right_article
+    padding-right 15px
+    padding-left 250px + @padding-right
+    float right
+    width 100%
+    min-height 600px    
+    background #f3f3f3
+    position relative
+    transition .3s all
+/*indexpage*/
+.content_style_div  
+    float left
+    background #fff
+    padding-top 15px
+    padding-bottom @padding-top
+    box-shadow 0 1px 3px rgba(0,0,0,.1)
+    margin-bottom .4rem
+    p
+        margin .5rem
+    >div
+        .ztzk_content_div
+            border 1px solid $border-color
+            box-sizing border-box            
+            border-radius 4px
+            display flex
+            align-items center
+            padding 1rem
+            margin 15px 0
+            i
+                font-size 32px
+                color #fff
+                border-radius 4px
+                width 60px
+                height @width
+                line-height @width
+                text-align center
+                display inline-block
+                margin-right 20px
+                &.back01
+                    background #e64179
+                &.back02
+                    background #fbbb0c
+                &.back03
+                    background #0095de
+                &.back04
+                    background #16d0be   
+            h3
+                color #444
+                font-size 24px
+                margin-bottom 15px
+            span
+                color #666
+        .ztzk_fxqk_div
+            border 1px solid $border-color
+            box-sizing border-box
+            margin-bottom 15px
+            h5
+                color #fff
+                text-align center
+                font-weight normal
+                padding 10px 0
+                background $third-color
+                font-size 14px
+                text-shadow 1px 1px 1px rgba(0,0,0,.2)
+                &.four-color
+                    background $four-color
+            ul
+                max-height 300px
+                overflow-y auto
+                li
+                    display flex
+                    justify-content space-between
+                    align-items center
+                    padding 10px 20px
+                    border-bottom 1px solid $border-color
+                    a
+                        color $third-color
+    >h2
+        font-size 14px
+        font-weight normal
+        text-indent 15px
+        margin-bottom 15px
+        i
+            color $first-color
+            margin-right 10px
+/*schoolmanage*/
+.label_top_menu_ul  
+    text-align center
+    margin .5rem 0
+    li
+        display inline-block
+        background #fff
+        color $first-color
+        border 1px solid @color
+        padding .8rem 2rem
+        min-width 10rem
+        text-align center
+        font-size 1rem
+        cursor pointer
+        box-shadow 0 1px 5px rgba(0,0,0,.2)
+        &:first-child
+            border-radius .3rem 0 0 .3rem
+        &:not(:first-child)   
+            margin-left -1px
+        &:last-child
+            border-radius 0 .3rem .3rem 0  
+        &.selected
+            background $first-color
+            color #fff
+.height_45            
+    height 45px
+    line-height @height
+.school_fieldset
+    padding .2rem 0
+    border-radius .5rem
+    border 1px solid $border-color
+    background #f4f6f9
+    legend
+        width auto
+        font-size 1.1rem
+        text-shadow 1px 1px 1px rgba(0,0,0,.4)
+.allwidth_pb_label
+    padding .5rem
+    float left
+    width 100%
+    display block
+    border-bottom 1px solid $border-color
+    .return_btn_a
+        float left
+        color $third-color
+        font-size 1rem
+        padding .5rem .6rem
+        display inline-block
+        background whitesmoke
+        border 1px solid $border-color
+        border-radius .5rem
+        &:before
+            content "\e65b"
+            font-family "iconfont"
+            padding-right .4rem
+        &:hover
+            text-shadow 1px 1px 1px rgba(86,111,201,.5)
+            box-shadow 0 0 0 .2rem rgba(0,0,0,0.05)
+    select
+        position relative
+        top -2px
+/*xscx*/
+.search_count_div
+    div
+        float left
+    select
+        width 300px
+    .center_in
+        text-align center        
+        width 100%
+        display flex
+        justify-content center
+        align-items center
+        &.mtb
+            margin-bottom 20px
+.image_book_background            
+    width 100%
+    max-height 520px  
+    overflow hidden
+/*system_sjjl*/            
+.tb_progress_div
+    height 14px
+    line-height @height
+    margin 0 .5rem
+    border-radius .8rem
+    background #3276B1
+    &.red
+        background #f00
+.slimScrollDiv
+    position relative
+    overflow hidden
+    width auto
+    height 400px
+.out_panel
+    display none
+    padding 1rem 0
+    div
+        float left
+/*index_ztzk*/
+ul.task_menu_ul      
+    li
+        float left
+        min-width 8rem
+        padding .5rem 1rem
+        text-align center
+        color #333
+        background #fff
+        cursor pointer
+        border-bottom 1px solid #f1f1f1
+        &.selected
+            color #fff
+            background $first-color
+.task_menu_div
+    float left
+    width 100%
+    >div
+        display none
+        ul.start_ul
+            max-height 500px
+            overflow-y auto
+            li
+                float left
+                width 100%
+                height 30px
+                line-height @height
+                transition .3s all
+                label
+                    cursor pointer
+                span.assign_span
+                    padding 0 .4rem                    
+                    border-radius .4rem
+                    margin-left .5rem
+                    border 1px solid $border-color
+                    &:hover
+                        background #a8dcf4
+                        box-shadow 0 0 .1rem rgba(0,0,0,.2)
+                &:hover
+                    font-size 16px
+                    padding .2rem 0
+                    background #f5f5f5
+//首页表图
+.today_count_ul
+    li
+        float left
+        min-width 6rem
+        padding .8rem 1rem
+        text-align center
+        color #333
+        background #fff
+        cursor pointer
+        &.selected
+            color #fff
+            background $first-color
+//首页 学校教师登录统计            
+
+//左右平分
+.today_count_div
+    >div
+        display none
+    .today_count_averstyle
+        float left
+        width 100%
+        >div
+            width 49.5%
+            min-height 29rem
+            &:first-child
+                float left
+            &:last-child
+                float right
+                .school-teacher-sign-count_ul
+                    padding .5rem
+                    li
+                        height 40px
+                        line-height @height
+                        border-bottom 1px solid $border-color
+                        &:first-child span.float-right
+                            color #17b161
+                        &:nth-child(2) span.float-right
+                            color #458ed6
+                        &:nth-child(3) span.float-right
+                            color #d46839
+//首页已完成任务
+.finish_task_div
+    float left
+    width 100%
+    padding .8rem 0
+    border-bottom 1px solid $border-color
+    h2
+        color #888
+        font-size 1.3rem
+        padding .2rem 0
+    div.week    
+        float left
+        width 20%
+        color #888
+        font-size .8rem
+    ul
+        float left
+        width 80%
+        li
+            height 30px
+            line-height @height
+            i
+                color $first-color
+            b
+                font-weight normal
+                color #888
+                margin-left .8rem
+                font-size .8rem
+//学科项目切换
+#subject_project_ul
+    width 100%
+    display flex
+    justify-content center
+    align-items center
+    border-bottom 1px solid $border-color
+    flex-flow row wrap
+    >li
+        width 5rem
+        padding .5rem
+        color #888
+        cursor pointer
+        i
+            font-size 3rem
+            width @width
+            display inline-block
+            text-align center
+        span
+            width @width
+            display inline-block
+            text-align center
+        &.selected
+            color #0eb83a
+#subject_project_article 
+    padding .5rem
+    .subject_content_div
+        padding-top 2rem
+        display inline-block
+        width 100%
+        .title
+            font-size 1.8rem
+            background #888
+            color #fff
+            display inline-block
+            padding .5rem 1rem
+        >ul
+            float left
+            width 100%                
+            border-left 1px solid $border-color
+            li
+                float left
+                width 10rem
+                text-align center
+                min-height @width
+                border-top 1px solid $border-color
+                border-right @border-top
+                border-bottom @border-top
+                display flex
+                justify-content center
+                align-items center
+                flex-flow column nowrap
+                h5
+                    font-weight bold
+                div
+                    padding .4erm 0
+///配置页面
+.config_all_content
+    >ul#config_left_ul
+        float left
+        width 10%
+        li
+            background #f5f5f5
+            text-align center
+            height 40px
+            line-height @height
+            border 1px solid $border-color
+            border-bottom none
+            position relative
+            z-index 2
+            cursor pointer
+            &:last-child
+                border-bottom 1px solid $border-color
+            &.selected
+                background #fff
+                border-right-color #fff
+    >article#config_right_content
+        float left
+        width 90%
+        border 1px solid $border-color
+        min-height 30rem
+        position relative
+        left -1px
+        box-sizing border-box
+        padding .5rem
+//小删除图标按钮
+.icon_del_color
+    color #f00
+//增加图标按钮
+.icon_add_color
+    color #28a745
+///基础配置页面
+.button_container
+    display flex
+    justify-content space-around
+    align-items center
+    >div
+        width 16rem
+        height @width - 3rem
+        color #fff
+        background #333
+        padding 1rem
+        text-align center
+        cursor pointer
+        &.success
+            background #28a745
+        &.danger
+            background #dc3545
+        &.info
+            background #007bff
+        &.warning
+            background #ffc107 
+        &:hover
+            opacity .8
+//机构管理页 增加学校
+#school_select_ul,#school_value_ul,#pop_school_select_ul,#pop_school_value_ul
+    width 100%
+    display inline-block
+    padding .5rem
+    background #fff
+    border 1px solid $border-color
+    border-radius .4rem
+    min-height 2rem
+    max-height 20rem
+    overflow-y auto
+    li
+        float left
+        height 2rem
+        line-height @height
+        padding-right 2rem
+        cursor pointer
+        &:hover
+            color #f00    
+//导入错误信息位置
+#error_info
+    display flex
+    flex-flow wrap
+    align-items start
+    font-size 12px
+    .error
+        padding-bottom .4rem
+//教师页 角色关联
+.role_left
+    float left
+    width 20%
+    padding-right .5rem
+    .folstyle
+        float left
+        width 100%
+        padding-bottom .2rem
+.role_right
+    float left
+    width 80%
+//表标题
+.table_title
+    background $first-color linear-gradient(to bottom,$first-color,$second-color)
+    padding .3rem 1rem
+    display inline-block
+    font-size 1.1rem
+    color #fff
+    margin-top 1rem
+    position relative
+    &:before
+        position absolute
+        content ""
+        top 0
+        left 0
+        width 100%
+        height 50%
+        background linear-gradient(to bottom,rgba(255,255,255,.2),transparent)
+//表中搜索不到条数时
+#empty_table_div
+    text-align center
+    padding 4rem 0
+    font-size 1.6rem
+    color #f00
+    
+///新建树结构treegrid页面
+.pading_table .table-treegrid
+    width 100%
+    margin-top .4rem
+    border 1px solid #ddd
+    border-collapse collapse
+    thead
+        tr
+            th
+                border 1px solid #ddd
+                background $first-color
+                color #fff
+                padding .4rem
+                text-align center
+                vertical-align middle
+                font-weight normal
+    tbody
+        tr
+            &.center
+                td
+                    text-align center
+            td
+                border 1px solid #ddd
+                font-size 12px
+                padding .2rem
+                &.center
+                    text-align center
+                button
+                    margin-right 10px
+            &:hover
+                background #f1f1f1
+                
+.treegrid-indent {width:16px; height: 16px; display: inline-block; position: relative;}
+.treegrid-expander {width:16px; height: 16px; display: inline-block; position: relative; cursor: pointer;margin-right:4px;}
+.glyphicon-chevron-down{background-image:url(../img/zTreeStandard.png);background-position:-92px -72px}
+.glyphicon-chevron-right{background-image:url(../img/zTreeStandard.png);background-position:-74px -72px}
+//角色配置
+.ztree_div
+    margin 2rem 0
+    background aliceblue
+    padding .5rem
+    box-shadow inset 1px 1px 1px rgba(0,0,0,.1)
+    border-radius .4rem
+.create_role_div
+    padding .4rem
+    display inline-block
+    label
+        float left
+        margin-bottom .4rem
+                    
+///等第分
+.d-flex
+    flex !important
+.ddftab
+        li
+            border 1px solid #e5e5e5
+            padding .45rem 1rem
+            cursor pointer
+            border-radius .3rem
+            &:not(:last-child)
+                border-top-right-radius 0
+                border-bottom-right-radius 0
+            &:not(:first-child)
+                margin-left -1px
+                border-top-left-radius 0
+                border-bottom-left-radius 0
+            &.active
+                color #fff
+                background $first-color
+.dui-check.dui-check-checkbox
+    margin-bottom .5rem
+    display flex
+    float left
+.dui-check input + .dui-check-label
+    position absolute
+    display inline-block
+    height 16px
+    width @height
+.table-ddf
+    border 1px solid #e5e5e5
+    border-collapse collapse
+    tbody
+        tr
+            box-sizing border-box
+            &:nth-child(odd)
+                background rgba(0,0,0,0.012)
+            th
+                padding 6px
+                white-space nowrap
+                vertical-align middle
+                font-weight normal
+            td
+                padding 8px
+                vertical-align middle
+                white-space nowrap
+                input
+                    color #000
+                    width 100%
+                    min-width 30px
+                    text-align center
+                    border 1px solid transparent
+                    background transparent
+                    padding 3px
+                    &:focus
+                        border-color $first-color
+.btn-primary.btn-sm
+    font-size .8rem
+    padding .25rem .8rem        
+    
+//权限树
+.ztreeDiv
+    border 1px solid $border-color
+    border-radius .4rem
+    height 20rem
+    overflow-y auto
+    padding .5rem
+    .search_div
+        margin 1rem
+        input[type='text']
+            padding .4rem
+            border-radius .2rem
+            border 1px solid $border-color
+            &:focus
+                outline 1px solid #ddd
+    .ztree
+        li
+            margin-bottom .4rem
+            span
+                font-size .8rem                    
+        .check_div
+            border-radius .4rem
+            padding .4rem .8rem
+            background-color #f3f3f3
+            @extend .flex_between
+            border 1px solid #f1f1f1
+            margin-top .2rem
+            transition .3s all
+            box-shadow 0 .05rem .1rem rgba(0,0,0,.1) inset
+            &:hover
+                background-color aliceblue
+            >i
+                cursor pointer
+                font-style normal
+///分析管理里“设置”按钮
+.card-header
+    position relative
+    .confing_btn
+        position absolute
+        top 10px
+        right @top
+        font-size 1.5rem
+        cursor pointer
+        text-shadow 2px 2px 4px rgba(0,0,0,.2)
+ul.config_parent_ul
+    border 1px solid $border-color
+    >li
+        .flex_between
+            background #f8f8f8
+            cursor pointer
+            line-height 3
+            padding 0 .5rem
+            border-top 1px solid #f2f2f2
+            border-bottom 1px solid $border-color
+            transition .2s all
+            &:hover
+                background #eee
+            &.justify-left
+                justify-content left
+ul.config_children_ul
+    >li
+        padding .4rem .8rem
+.config_padding_div
+    padding .4rem .8rem
+//校本分析页----结构按钮
+.structure_h4
+    text-align center
+    font-size 1.2rem
+    padding .8rem
+.structure_div
+    float left
+    line-height 2rem
+    width 100%
+    padding .2rem
+    display inline-block
+    >label,>span
+        float left
+    .wid_span20
+        min-width 20rem
+    .wid_span12
+        min-width 12rem
+.structure_ul
+    float left
+    li
+        float left 
+        display inline-block
+        border-radius .3rem
+        min-width 3.4rem
+        margin-right .4rem
+        text-align center
+        cursor pointer
+        border 1px solid $border-color
+        &.hover            
+            background $first-color
+            border-color $first-color
+            color #fff
+.class_label
+    display flex
+    align-items center
+    padding-right 1rem
+.center_div
+    display flex
+    justify-content center
+    align-items center
+    padding 1rem
+//短信窗口
+.message_fieldset
+    label
+        display flex
+        align-items center
+        cursor pointer
+    section
+        >div
+            padding .4rem
+    .alert
+        display inline-block
+        width 100%
+        label
+            float left
+            margin-right .4rem
+//切图按钮的页面样式
+.cutImage_ul
+    display inline-block
+    width 100%
+    li
+        float left
+        text-align center
+        width 200px
+        margin .4rem
+        padding .4rem
+        box-sizing border-box
+        position relative
+        border 1px solid $border-color
+        transition .3s all
+        &:hover
+            box-shadow 0 0 0.5rem rgba(0,0,0,.1)
+        >div
+            height 200px
+            display flex
+            justify-content center
+            align-items center
+            img
+                max-height 100%
+        >span
+            font-size 12px
+            width 100%
+            min-height 40px
+            word-break break-all
+            display -webkit-box
+            -webkit-line-clamp 2
+            -webkit-box-orient vertical
+            overflow hidden
+        >i
+            font-size 24px
+            cursor pointer
+            position absolute
+            top .2rem
+            right .2rem
+            z-index 1
+            
+//常规作业列表样式
+.job_section
+    float left
+    width 100%
+    margin-top 20px
+.job_border
+    border 1px solid $border-color
+    padding 20px
+.job_sontent_style
+    display flex
+    align-items center
+    padding 20px
+    box-sizing border-box
+    border 1px solid $border-color    
+    position relative
+    &:not(:last-child)
+        margin-bottom 20px
+    .analysis_style
+        top 0
+        left 0
+        position absolute
+        min-width 100px
+        color #fff
+        &:before
+            content ""
+            position absolute
+            top 0
+            left 0
+            border-top 40px solid #47c563
+            border-right 100px solid transparent
+        &:after 
+            content attr(data-name)
+            position absolute
+            top 5px
+            left @top
+            text-shadow 1px 1px 3px rgba(0,0,0,.2)
+        &.no    
+            &:before
+                border-top-color #f9a774 
+    .job_main
+        padding-left 100px
+        h4
+            font-size 14px
+            font-weight bold
+            padding-bottom 14px
+        ul
+            li
+                float left
+                margin-right 10px
+                color #939393
+    .job_button
+        margin-left auto
+
+//创建作业页
+.line_b
+    display inline-block
+    width 5px
+    height 16px
+    margin-right 10px
+    background $first-color
+.job_dl
+    @extends .flex_align_center
+    margin-bottom 1rem
+    width 100%
+    dt
+        float left
+        font-weight normal
+    dd
+        float left
+.paper_frame
+    display flex
+    align-items start
+    flex-flow row wrap
+.paper_style_div
+    display inline-block
+    margin 0 1.6rem 1.6rem
+    border 1px solid $border-color
+    width 400px
+    padding 10px
+    position relative
+    >.iconfont
+        position absolute
+        content ""
+        top -20px
+        right @top
+        font-size 40px
+        color gray
+.paperdiv_allwidth 
+    >label
+        width 100%
+        margin .2rem 0
+    >input,>select
+        width 100%
+.title_h
+    text-align center
+    font-size 24px
+//分析窗口模板
+.analysis_win
+    display inline-block
+    width 100%
+    padding 1rem 0
+    ul
+        display inline-block
+        width 100%
+        margin-top .3rem
+        li
+            @extends .flex_between
+            padding .4rem
+            &:hover
+                background rgba(0,0,0,.1)
+            label
+                float left
+                display flex
+                align-items center
+//导入结构模板
+.structure_title
+    text-algin center
+    font-size 14px
+    margin-bottom 1rem
+//显示提示窗口
+.iconfont.icon-xinxi2
+    font-size 18px
+    position relative
+    .tip_table_div
+        background #fff
+        z-index 10
+        padding .4rem
+        position absolute
+        bottom 100%
+        left -200px
+        table
+            font-size 14px
+            width 400px
+            border 1px solid $border-color
+            th
+                text-align center
+            th,td
+                padding .2rem
+                border 1px solid $border-color
+.iconfont.icon-xinxi2.right
+    .tip_table_div
+        left auto
+        right 0
+/*教辅作业*/
+.allLabelDiv
+    padding .5rem
+    float left
+    width 100%
+.allLabelDl
+    dt
+        float left
+        min-width 80px
+        font-weight normal
+        height 30px
+        line-height @height
+        text-align center
+    dd
+        float left
+        width calc(100% - 80px)
+        >span
+            float left
+            min-width 80px
+            padding 6px 10px
+            margin 0 4px 8px
+            text-align center
+            border 1px solid $border-color
+            border-radius .2rem
+            cursor pointer
+            transition .3s all
+            &:hover, &.hover
+                border-color $first-color
+                background @border-color
+                color #fff
+.teachingAssistantUl
+    li        
+        float left
+        width 150px
+        margin 0 10px 16px        
+        .imgDiv
+            position relative
+            cursor pointer
+            overflow hidden
+            border-radius .8rem
+            box-shadow .1rem .1rem .3rem rgba(0,0,0,.3)
+            height 210px
+        >p
+            white-space pre-wrap
+            text-align center
+            margin .5rem .8rem
+            line-height 1.5
+        .delDiv
+            position absolute
+            top 0
+            left 0
+            right 0
+            color #fff
+            padding 8px 0
+            text-align center
+            background rgba(0,0,0,.5)
+            display none
+            transition .3s all
+        .addBookDiv
+            cursor pointer
+            display flex
+            justify-content center
+            align-items center
+            flex-flow column wrap
+            color #C4C7CA
+            background #ebeff2
+            border-radius .8rem
+            box-shadow .1rem .1rem .3rem rgba(0,0,0,.3)
+            height 210px
+            >i
+                font-size 3rem
+        &:hover
+            .delDiv
+                display inline 
+.cleartype_dl
+    dt
+        float left
+        width 100px
+        font-weight normal
+        text-align center
+    dd
+        float left
+        width calc(100% - 100px)
+/*机构分析模板样式*/
+.jgfxUlModel
+    li
+        border 1px solid $border-color
+        padding 20px
+        position relative
+        display flex
+        align-items center
+        margin-bottom 10px
+        .analyzed
+            position absolute
+            top 0
+            left 0
+            &:before
+                position absolute
+                content attr(data-text)
+                white-space nowrap
+                z-index 1
+                padding 4px
+                font-size 12px
+                color #fff
+            &:after 
+                position absolute
+                content ""
+                border-style solid
+                border-width 0px 0px 40px 75px
+                border-color transparent transparent transparent #48c663
+            &.no
+                &:after
+                    border-color transparent transparent transparent #f9a774
+        >div:nth-child(2)
+            padding-left 100px
+            h5
+                font-size 16px
+                font-weight bolder
+                padding-bottom 14px
+                >span
+                    border-radius 50px
+                    background #FFF4F1
+                    color #FAA111
+                    padding 4px 8px
+                    font-size 14px
+                    font-weight normal
+                    display inline-block
+                    margin-right 10px                    
+        >div:last-child
+            margin-left auto
+//学校分析ul样式
+.schoolAnalyticalUl
+    width 100%
+    display inline-block
+    padding 10px
+    li
+        float left
+        margin 0 10px 10px
+//考试分析ul样式
+.examAnalyticalUl
+    display inline-block
+    width 100%
+    padding 10px
+    li
+        display flex
+        align-items center
+        margin-bottom .5rem
+        >label:first-child
+            min-width 100px
+        >span:last-child
+            margin-left auto
+.bootstrap-select .dropdown-menu.inner
+    max-height 250px

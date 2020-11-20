@@ -1,0 +1,85 @@
+<div class="container-wrap">
+    <div class="d-flex mb-3">
+        <div class="school-name">(284025) 成都市第57实验学校（小学部）</div>
+        <select class="form-control yearIn">
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018" selected="">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+        </select>
+    </div>
+    <ul class="nav nav-tabs mb-3" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="emd-tab" data-toggle="tab" href="#emdtab" role="tab" aria-controls="emdtab" aria-selected="true">EMD分数线</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="last-tab" data-toggle="tab" href="#lasttab" role="tab" aria-controls="lasttab" aria-selected="false">最后N名学生</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="online-tab" data-toggle="tab" href="#onlinetab" role="tab" aria-controls="onlinetab" aria-selected="false">进线和踩线</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="priority-tab" data-toggle="tab" href="#prioritytab" role="tab" aria-controls="prioritytab" aria-selected="false">重点线</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="score-tab" data-toggle="tab" href="#scoretab" role="tab" aria-controls="scoretab" aria-selected="false">总分分数段</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="emdtab" role="tabpanel" aria-labelledby="emd-tab">
+            <div class="alert alert-success">
+                <h4 class="alert-heading">EMD分数线</h4>
+                <p>EMD分数线（绝对分比例），范围(0～1)</p>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="lasttab" role="tabpanel" aria-labelledby="last-tab">
+            <div class="alert alert-success">
+                <h4 class="alert-heading">最后N名学生</h4>
+                <p>最后xx名学生，默认0.15（人数，可以配置绝对人数，也可以配置人数百分比，’1’作为绝对人数处理）</p>
+            </div>
+            <div class="table-responsive pading_table">
+                <table class="table table-bordered table-reset" id="scoreContent">
+                    <thead>
+                        <tr>
+                            <th>ls_wk (文科配置线)</th>
+                            <th>ls_lk (理科配置线)</th>
+                            <th>ls_qk (全科配置线)</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="onlinetab" role="tabpanel" aria-labelledby="online-tab">
+            <div class="alert alert-success">
+                <h4 class="alert-heading">进线和踩线</h4>
+                <p class="text-danger">1. 当前仅支持全局设置，即不支持文理科单独设置.</p>
+                <p>2. 策略配置内容包括五项: 需按照说明顺序填写并用逗号分隔。格式要求：线名称, 上线统计方式(1:人数 2:分数), 上线标准(分数), 踩上线范围, 踩下线范围</p>
+                <p>3. 策略配置内容约束: 未配置的内容请使用"-1"或者不填写，但是分隔逗号不能省略。例如: 前10%,1,0.1,,或者前10%,1,0.1,-1,-1</p>
+                <p class="text-danger">4. 导入模板使用说明：模板中的ol_qk代表整个全科、ol_primix：主科、ol_wk：文科、ol_lk：理科、ol_yw：语文......ol_sw：生物、ol_mix代表全科单行数据配置（这些要根据配置需求再做具体配置）。 模板中给了全科和文理科的全部配置，如果初中不分文理科只需要保留模板中全科及其以下所需要配置的学科，ol_wk和ol_lk是对文理科的配置，这时候就要删掉。 简而言之，不分科只保留全科，只有文科就只留文科，没有主科就把模板中主科的配置去掉，不需要配生物，就把生物去掉，以此类推。</p>
+                <p>5.导入模板Excel只支持.xls格式导入， 查看是否导入成功需要刷新浏览器。</p>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="prioritytab" role="tabpanel" aria-labelledby="priority-tab">
+            <div class="alert alert-success">
+                <h4 class="alert-heading">进线和踩线</h4>
+                <p class="text-danger">1. 当前仅支持全局设置，即不支持文理科单独设置.</p>
+                <p>2. 策略配置内容包括五项: 需按照说明顺序填写并用逗号分隔。格式要求：达线人数比例(小数)/分数, 上线统计方式(1:人数 2:分数)</p>
+                <p>3. 策略配置内容约束: 未配置的内容请使用"-1"或者不填写，但是分隔逗号不能省略。</p>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="scoretab" role="tabpanel" aria-labelledby="score-tab">
+            <div class="alert alert-success">
+                <h4 class="alert-heading">总分分数段</h4>
+                <p class="text-danger">1. 当前仅支持全局设置，即不支持文理科单独设置.</p>
+            </div>
+        </div>
+    </div>
+</div>

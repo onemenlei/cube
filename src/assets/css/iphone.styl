@@ -1,0 +1,795 @@
+@media only screen and (min-width:320px) and (max-width:749px)
+    //隐藏内容
+    .suspensionRight-div,.achievement_select_nav,.information_table,.paper_main_div,.totalScore_ul,.brzsd_left_nav,.xxlx_ul,.select_lesson_div,.xxlx_frame_section .xxlx_paper_div >aside,.subjectTable_table
+        display none
+    ///手机版显示内容
+    //achievement.html
+    .achievement_header
+        width 100%
+        background transparent
+        clear-both()
+        height auto
+        min-height auto
+        nav.i_achievement_nav
+            float left
+            width 94%
+            padding 1rem 3%
+            position fixed
+            z-index 10
+            overflow hidden
+            height 3rem
+            background #fff
+            display block
+            border-bottom 1px solid #f3f3f3
+            .logo
+                background url('../img/logo.png') no-repeat center center
+                background-size contain
+                width 7rem
+                height @height
+                float left
+            >ul
+                float left
+                width 92%
+                box-sizing border-box
+                li
+                    float left
+                    height 3rem
+                    line-height @height
+                    margin-right .8rem
+                    margin-bottom .5rem
+                    &.hover
+                        color #168aff
+                        position relative
+                        &:before
+                            content ""
+                            position absolute
+                            bottom 0
+                            left 0
+                            width 100%
+                            height 1px
+                            background @color                            
+            >i
+                float left
+                display block
+                text-align center
+                padding-top .5rem
+                width 8%
+                font-size 2.4rem
+                
+        aside
+            float left
+            margin-top 4.8rem
+            background url('../img/i_header_banner.png') no-repeat center center
+            background-size cover
+            width 100%
+            height 11rem
+            min-height auto
+            &:before
+                display none
+            .logo
+                display none
+            .brand
+                width 11.83rem
+                height 8.08rem
+                background url('../img/i_brand.png') no-repeat center center
+                background-size cover
+                font-size 1.2rem
+                a
+                    margin 0
+                    font-size 1.3rem
+                >div:first-child
+                    padding 0 0 0 2rem
+                    a
+                        margin-left .5rem
+                        border-width 2px
+                >div:nth-child(2)
+                    padding 1rem 0 0
+                    a
+                        margin 0
+            &.empty_aside
+                margin-top 0
+                .logo
+                    display block
+                    width 7.08rem
+                    height 3rem
+                    background-size contain
+                    margin-top 0
+                    top 1.5rem
+                    right 2rem
+    .achievement_all_article
+        max-width none
+        min-width auto
+        width 100%
+        margin-bottom 0
+        >section
+            float left
+            width 100%
+            padding 0
+            box-shadow none
+    .zxcj_main
+        padding 1rem 2%
+        >h1
+            font-size 1.5rem
+            padding .5rem 0
+            border-bottom-width .2rem
+        .total_sum_figure
+            >div
+                width 100%
+                padding-top 1rem
+                >u
+                    font-size 1.5rem
+                &.four_half_div    
+                    .text_content
+                        width 40%
+                        margin 1rem 5%
+                        box-sizing border-box
+                        height auto
+                        >b
+                            font-size 1.8rem
+                        >span
+                            font-size 1.4rem
+        .disparity_figure
+            padding 1rem
+            border-width 1px
+            >h2
+                font-size 1.5rem
+            >span
+                font-size 1.2rem
+                >b
+                    font-size 1.8rem
+            >div
+                padding 1rem 5%
+                width 90%
+                img
+                    width 20%
+                    &:last-child
+                        margin-top .1rem
+                        width 4rem
+                >div
+                    >span
+                        font-size 2.4rem
+                        >b
+                            font-size 1.2rem
+                    >div
+                        height .1rem
+                        &:after
+                            border-width .3rem
+                            border-left-width .9rem
+                            right -.8rem
+                            top -.2rem
+        .trend_figure  
+            margin .5rem 0
+            >span
+                font-size 1.4rem
+            >div
+                min-height 10rem
+        >figure
+            margin-bottom .2rem
+            >figcaption                
+                font-size 1.5rem
+                margin 1rem 0 2rem
+                &:after
+                    width 36%
+                    height 1px
+            >span
+                font-size 1.4rem
+                padding .5rem 0
+            >.half_width_div
+                float left
+                width 100%
+                padding .5rem 0 
+        nav.i_teacher_nav
+            display block
+            margin-bottom .5rem
+            float left
+            width 100%
+            a
+                float left
+                width 50%
+                display block 
+                text-align center
+                border-bottom 1px solid #757882
+                border-right @border-bottom
+                background #3a3d4c
+                color #fff
+                font-size 1.2rem
+                padding .8rem 0
+                box-sizing border-box
+                &.hover
+                    background #6197cc
+    //此表只在手机端显示        
+    .i_information_table
+        width 100%
+        margin 1rem 0
+        display table
+        th
+            //width 25%
+            height 2.5rem
+            line-height 1.5
+            vertical-align middle
+            color #fff
+            text-align center
+            background #02b2c4
+            font-weight 600
+            overflow hidden
+            position relative
+            font-size 1rem
+            padding 0 .4rem
+            text-shadow 0 1px 4px rgba(0,0,0,.3)
+            &:before
+                background rgba(255,255,255,.3)
+                content ""
+                position absolute
+                transform scale(2) rotate(-20deg)
+                transform-origin:0% 100%
+                top 0
+                left 0
+                right 0
+                bottom 0
+            &:nth-child(odd)
+                background #00a2e0
+        tbody
+            tr 
+                td
+                    height 2.5rem
+                    line-height @height
+                    font-size 1.5rem
+                    text-align center
+                    border-bottom 1px dashed #ddd
+                &:hover
+                    td
+                        background #f1f1f1
+    .subject_button_main
+        >a
+            width 23%
+            width 8rem
+            height 2.6rem
+            line-height @height
+            font-size 1.4rem
+            background-size contain
+            margin 0 1rem .5rem
+    //手机端知识点
+    .zsd_div1
+        i_zsd_div(#83cc2b)
+    .zsd_div2
+        i_zsd_div(#6197cc)
+    .zsd_div3
+        i_zsd_div(#a481b2)
+    .zsd_div4
+        i_zsd_div(#27a8f3) 
+    .zsd_div5
+        i_zsd_div(#ffde5a)
+    .zsd_div6
+        i_zsd_div(#69cef9)
+    .zsd_div7
+        i_zsd_div(#fcae14)
+    .zsd_div8
+        i_zsd_div(#1ac0b7)
+    .zsd_div9
+        i_zsd_div(#ee4b47)
+    .zsd_div10
+        i_zsd_div(#ff8040)  
+    //尾部
+    .achievement_footer
+        font-size 1.3rem
+        padding 1.5rem 0
+    //弹出框
+    #student_tab
+        >.test_popup
+            width 80%
+            padding 1rem
+            >h4
+                font-size 2rem
+                margin-bottom 1.5rem
+            >p
+                font-size 1.6rem
+            ul
+                li
+                    a
+                        span
+                            font-size 1.8rem
+                            padding-top .8rem
+    //科目类型 颜色标签
+    .subjectType_aside
+        margin 1rem 0
+        .subjectType1
+            i_subjectType(#83cc2b)
+        .subjectType2
+            i_subjectType(#6197cc)
+        .subjectType3
+            i_subjectType(#a481b2)
+        .subjectType4
+            i_subjectType(#27a8f3)
+        .subjectType5
+            i_subjectType(#ffde5a)
+        .subjectType6
+            i_subjectType(#69cef9)
+        .subjectType7
+            i_subjectType(#fcae14)
+        .subjectType8
+            i_subjectType(#1ac0b7)  
+        .subjectType9
+            i_subjectType(#ee4b47)
+        .subjectType10
+            i_subjectType(#ff8040)
+        .lineball
+            display none
+    .myctb_frame_section
+        border none
+        padding 0
+        .myctb_paper_div
+            border none
+            box-sizing content-box
+            margin-bottom .5rem
+            h6
+                font-size 1.4rem
+                padding-top 0
+                &:before
+                    font-size 3.8rem
+                    padding-right 1rem
+                &:after
+                    font-size 3rem
+                    right -2.5rem
+            .empty_div
+                padding 2rem 0
+                font-size 1.4rem
+            .i_paper_main_div
+                display block
+                ul.paper_main_ul
+                    li
+                        float left
+                        width 100%
+                        padding 1rem 0
+                        border-bottom 1px solid #e5e5e5                        
+                        >p
+                            float left
+                            width 100%
+                            display flex
+                            justify-content space-between
+                            align-items center
+                            font-size 1.3rem                               
+                            &:nth-child(2)
+                                padding-top .4rem
+                                font-size 1.2rem
+                                b
+                                    color #3071ab
+                                    font-weight normal
+                                button
+                                    background #fff
+                                    border 1px solid #e5e5e5
+                                    border-radius .4rem
+                                    padding .3rem
+                                    color #777
+                                    font-size 1.3rem
+                                    cursor pointer
+                                    i
+                                        color #4ea64f
+                                    &:hover
+                                        background #f1fafe
+                        >div:first-child
+                            float left
+                            width 100%
+                            display flex
+                            justify-content space-between
+                            align-items center
+                            >img
+                                width 6rem
+                            >button
+                                background #fff
+                                border 1px solid #e5e5e5
+                                border-radius .4rem
+                                padding .3rem
+                                color #777
+                                font-size 1.3rem
+                                cursor pointer
+                                i
+                                    color #4ea84e
+                                    font-size 1.2rem
+                                    padding-right .5rem
+                                &:hover,&.hover
+                                    background #f1fafe
+                            >div.text_paper
+                                p
+                                    font-size 1.3rem
+                                    padding-bottom .5rem
+                                    &:nth-child(2)
+                                        font-size 1.2rem
+                                    b
+                                        color #3070ae
+                                        font-weight normal
+    //more更多                
+    .more_div
+        font-size 1.4rem
+        height 3rem
+        line-height @height
+    .totalScore_figure
+        h4
+            padding 2rem 0
+            font-size 1.4rem
+        h5
+            font-size 1.4rem
+            text-indent 7rem
+            margin 2rem 2% 1rem 2%
+            &:before
+                background-size cover
+                width 6rem
+                height 3rem
+            &:after
+                background-size cover
+                width 2rem
+                height @width
+                right -(@width)
+        .i_totalScore_ul
+            display block
+            li
+                float left
+                width 100%
+                padding .5rem 0
+                border-bottom 1px solid #ddd
+                >div:first-child
+                    float left
+                    width 100%
+                    display flex
+                    //justify-content space-around
+                    align-items center
+                    >div:first-child
+                        float left
+                        color #666
+                        padding .5rem .8rem
+                        text-align center
+                        background #e1f4fc
+                        font-size 1.2rem                        
+                        b
+                            font-size 1.5rem
+                            color #3070ae
+                            font-weight normal
+                    >div:nth-child(2)
+                        float left
+                        background #46b9d0
+                        width 1px
+                        height 1.5rem
+                        margin 0 .5rem
+                    >span:last-child
+                        float left
+                        font-size 1.2rem
+                        max-width 70%
+                        overflow hidden
+                >dl
+                    float left
+                    padding-top .5rem
+                    font-size 1.2rem
+                    display flex
+                    align-items center
+                    dt
+                        float left
+                        width 55%  
+                        span
+                            float left
+                            width 100%
+                            display flex
+                            //justify-content space-around
+                            align-items center
+                            .green_progressBar
+                                i_progressBar 90deg,#2dd562,#b3d938
+                            .red_progressBar
+                                i_progressBar 90deg,#d84e4f,#fa924a
+                            s
+                                text-decoration none
+                    dd
+                        float right
+                        width 45%
+                        display flex
+                        justify-content flex-end
+                        align-items center
+                        a
+                            display inline-block
+                            text-align center
+                            i
+                                color #32b3e3
+                                font-size 1.5rem
+                                display inline-block
+                                padding .4rem
+                                border 1px solid #32b3e3
+                                border-radius .4rem
+                            span
+                                float left
+                                width 100%
+                                padding-top .3rem
+    .brzsd_right_div
+        width 100%
+        .brzsd_nothing_div
+            height 8rem
+            line-height @height
+            font-size 1.6rem
+        .third_half_div
+            width 100%
+            >a:last-child
+                font-size 1.6rem
+    .brzsd_main_div
+        width 96%
+        padding 1.5rem 2%
+        h2
+            i_brzsd_title #7294cd "\e64e"
+        h3
+            i_brzsd_title #5a79ba "\e64f"
+        h4
+            i_brzsd_title #4c6cb3 "\e650"
+        ul
+            padding 1.2rem 5%
+            li
+                width 50%
+                a
+                    font-size 1.4rem
+                    height 2.4rem
+                    line-height @height
+    .i_class_select
+        text-align center
+        padding 2rem 0
+        display inherit
+        select
+            padding .5rem 1rem
+            border 1px solid #21b717
+            border-radius .2rem
+            background #fff
+    //薄弱知识点弹出窗口
+    .brzsd_title_ul
+        max-height 50vh
+        overflow-y auto
+        li
+            float left
+            width 100%
+            a
+                height 2.5rem
+                line-height @height
+                font-size 1.4rem
+    ///学校练习
+    .xxlx_frame_section 
+        .xxlx_paper_div
+            padding-bottom 1rem
+            h6
+                font-size 1.5rem
+                padding-top 1.5rem
+                &:before
+                    font-size 3rem
+                    padding-right @font-size - 2
+                &:after
+                    font-size 2.4rem
+                    right -(@font-size - .4)
+            ul.i_xxlx_ul
+                display block
+                float left
+                width 100%
+                li
+                    float left
+                    width 100%
+                    padding 1.5rem 0
+                    border-bottom 1px solid #ddd
+                    >div:first-child
+                        float left
+                        width 100%
+                        display flex
+                        align-items center
+                        >div:first-child
+                            float left
+                            color #666
+                            padding .5rem 0
+                            width 8rem
+                            text-align center
+                            background #e1f4fc
+                            font-size 1rem 
+                            text-align center
+                            p
+                                font-size 1.5rem
+                                color #3070ae
+                                width 100%
+                            span
+                                width 100%
+                        >div:nth-child(2)
+                            float left
+                            background #46b9d0
+                            width .2rem
+                            height 1.5rem
+                            margin 0 .7rem
+                        >span:last-child
+                            float left
+                            font-size 1.5rem
+                    >div:nth-child(2)
+                        width 100%
+                        display flex
+                        align-items center
+                        font-size 1.2rem
+                        >a
+                            font-weight bold
+                            display block
+                            margin 0 2rem
+                            i
+                                color #ce3327                                
+                                margin-right .2rem
+            >main
+                width 100%
+                box-sizing border-box
+                padding-top 2rem
+    .xxhd_main_div
+        margin-bottom 2rem
+        h2
+            i_brzsd_title #4b5cc4 "\e652"
+        h3
+            i_brzsd_title #117bbf "\e615"
+        h4
+            i_brzsd_title #6197cc "\e653"     
+        ul
+            border none
+            padding 1rem 0
+            width 100%
+            li
+                font-size 1.3rem
+                padding .8rem 0
+                article
+                    padding .5rem 0
+                    >div
+                        width 46%
+                        padding 1rem 0
+                        margin 0 2% 1rem 2%
+                        >p:first-child
+                            height 3.4rem
+                        >p:nth-child(2)
+                            padding .8rem 0 1.6rem
+                        >a.hover
+                            font-size 1.8rem
+                        >div
+                            padding .42rem 0
+                            >p:nth-child(2)
+                                font-size 1.2rem
+        .heightlimited_div
+            border none
+    //选课确认弹出框
+    #xxhd_tab 
+        .test_popup
+            width 70%
+            padding 0 1rem
+    .confirm_style_popup 
+        header
+            font-size 1.8rem
+            padding 1.3rem 0
+        main
+            padding 1.2rem 0
+            p
+                font-size 1.3rem
+                padding-bottom .3rem
+        footer
+                padding 1.2rem 0
+                button
+                    font-size 1.4rem
+                    padding .3rem .5rem
+                    margin-right 1rem
+    .flex_tc_div
+        padding-top 1rem                    
+    .message_img_div
+        width 100%
+        height 15rem
+        background-size cover
+        div
+            margin 3rem 10% 2rem 10%
+            h1
+                font-size 1.5rem
+                padding-top 3.5rem
+            h2
+                font-size 1.2rem
+                padding 0 0 .5rem 0
+            button
+                font-size 1.3rem
+                padding .5rem 1rem
+    ///个人设置
+    .grsz_frame_section
+        min-height auto
+    .grsz_main_div
+        font-size 1.8rem
+        margin-bottom 4rem
+        h5
+            padding-bottom .5rem
+            font-size 1.5rem
+            background #f1f1f1
+            float left
+            width 100%
+            padding .5rem
+            box-sizing border-box
+            border-radius .5rem
+            border none
+            box-shadow 0 1px 2px rgba(0,0,0,.2)
+            i
+                font-size 2rem
+                padding 0 .5rem
+        ul
+            padding 0
+            width 100%
+            min-width auto
+            li
+                font-size 1.5rem
+                padding .9rem 5%
+                width @width
+                >label
+                    width 100%
+                    text-align left
+                    padding 0 0 .8rem 0
+                    text-indent 1rem
+                input[type="text"],input[type="password"]
+                    width 100%
+                    font-size @font-size
+                    box-sizing border-box
+                    padding .3rem
+                >span.hidden
+                    font-size @font-size - 0.1
+                button.grsz_button 
+                    padding .5rem
+                    font-size @font-size
+                    width 100%
+                    border-radius .3rem
+    //考情报告
+    .all_width_main
+        width 96%
+        padding 1rem 2%
+        box-shadow none
+        >section
+            padding .6rem 0
+    .pjhd_dl
+        min-height auto
+        >dt
+            font-size 2rem
+            padding 2rem 0 .7rem
+        dd
+            >label
+                padding .6rem 1%
+                font-size 1.6rem
+    .pjhd_center_div
+        padding 1.5rem 0
+        button
+            font-size 1.8rem
+            padding .75rem 2.5rem
+    ///科目分数表
+    .subjectTable_all_div
+        >header
+            height 12rem
+            h1
+                font-size 4rem
+            span
+                font-size 1.4rem
+                em
+                    font-size 3rem
+        >footer
+            height 8rem
+            p
+                font-size 1.2rem
+        main
+            table.i_subjectTable_table
+                width 100%
+                display table
+                thead
+                    tr
+                        th
+                            width 20%
+                            font-weight normal
+                            background #ecf0f1
+                            text-align center
+                            font-size 1.6rem
+                            color #666
+                            padding 1.6rem 0
+                            border 1px solid #ddd
+                            box-sizing border-box
+                tbody
+                    tr
+                        td
+                            background #fff
+                            text-align center
+                            font-size 1.3rem
+                            color #666
+                            padding 1rem 0
+                            border 1px solid #ddd
+                            box-sizing border-box
+                            &.red_color
+                                color #f00
+                            &.backcolor_navy
+                                background #f3fcfe
+    //一开始数据加载图片 & 无数据时图片
+    .loadingData,.noData   
+        padding 1rem
+        

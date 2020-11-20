@@ -1,0 +1,191 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    vertical-align:baseline;
+    background:transparent;
+}
+cite
+    font-style normal
+html
+    font-size 100%  /* 16px=1rem */
+body {
+    line-height:1;-webkit-font-smoothing: antialiased; /*chrome、safari*/
+-moz-osx-font-smoothing: grayscale;/*firefox*/
+}
+
+:focus {
+	outline: 1;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted #000;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align middle
+}
+//所有input[type="number"]去掉上下箭头
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
+input
+    outline none
+body  
+  font 14px sans-serif,PingFang SC,San Fransico,Helvetica, Arial, Microsoft YaHei
+  font-family NSimSun
+  color #333
+ul
+    list-style none
+img
+    max-width 100%
+/** 重置超链接元素 **/
+a
+    outline: none
+    text-decoration: none
+    star: expression_r(onFocus=blur)
+    color #333
+a:visited,a:hover,a:active
+    text-decoration: none
+    color #333
+.visibility
+    visibility hidden
+.pre70
+    width 70%    
+.pre80
+    width 80%
+.hidden
+    display none
+.block
+    display block
+.overflow
+    overflow hidden
+.fl
+    float left
+.fr
+    float right
+.t_l
+    text-align left
+.t_r
+    text-align right
+.t_c
+    text-align center
+//遮罩层                    
+.background-dark
+    position fixed
+    top 0
+    left 0
+    right 0
+    bottom 0
+    z-index 2
+    background rgba(0,0,0,.5)
+    display none
+    &.block
+        display block    
+/*混合书写*/
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  {prop} args
+
+border-radius()
+  vendor('border-radius', arguments)
+
+box-shadow()
+  vendor('box-shadow', arguments)
+
+text-shadow()
+    vendor('text-shadow', arguments)
+
+transition()
+    vendor('transition', arguments)  
+
+transform()
+    vendor('transform', arguments)  
+mask-image()
+    vendor('mask-image', arguments)
+//去浮动    
+clear-both()
+    zoom 1
+    &:after
+        content ""
+        display block
+        visibility hidden
+        height 0
+        clear both

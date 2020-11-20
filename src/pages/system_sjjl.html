@@ -1,0 +1,21 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!--审计记录-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  content_style_div">
+    <div class="alert alert-warning">该页面记录了所有系统帐户的关键操作行为.</div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+        <button class="btn btn-danger" onclick="Men.clear_all_table('http://')"><i class="iconfont icon-shanchu"> </i>清空记录</button>
+    </div>
+    <div class="pading_table">
+    <table class="table_datas" id="datatable_sjjl">
+        <thead>
+            <tr>
+                <th>等级</th>                
+                <th>姓名</th>
+                <th>帐户</th>
+                <th>时间</th>
+                <th>行为</th>
+            </tr>
+        </thead>
+    </table>
+    </div> 
+</div>

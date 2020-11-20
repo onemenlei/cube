@@ -1,0 +1,145 @@
+<!--<%@ page language="java" pageEncoding="UTF-8"%>-->
+<!--机构管理-->
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_style_div">
+    <ul class="label_top_menu_ul" id="jggl_ul">
+        <li>机构列表</li>
+        <li>机构创建</li>
+    </ul>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <!--机构管理表-->
+        <article>
+            <div class="pading_table">
+                <table class="table_datas" id="datatable_jggl">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th>代码</th>
+                            <th>机构别名</th>
+                            <th>学校</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </article>
+        <!--机构管理结束-->
+        <!--机构创建-->
+        <article>
+            <form id="jggl1" onsubmit="return false">
+                <fieldset class="school_fieldset">
+                    <legend>基础信息</legend>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form_div">
+                        <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                            <label class="allwidth_label">机构代码<em class="star_em"></em></label>
+                            <input type="text" class="default_input" id="inputvalue_03" />
+                        </div>
+                        <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                            <label class="allwidth_label">机构名称<em class="star_em"></em></label>
+                            <input type="text" class="default_input" name="f1" id="inputvalue_01" required />
+                        </div>
+                        <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                            <label class="allwidth_label">机构简称<em class="star_em"></em></label>
+                            <input type="text" class="default_input" name="f2" id="inputvalue_02" required />
+                        </div>
+                        <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12">
+                            <label class="allwidth_label">机构类型<em class="star_em"></em></label>
+                            <select id="organizationType" class="default_select" required="" aria-required="true"></select>
+                        </div>
+                        <!--行政区划-->
+                        <div class="col-lg-12 -col-md-12 col-sm-12 col-xs-12">
+                            <label class="allwidth_label">行政区划<em class="star_em"></em></label>
+                            <select id="province" class="default_select col-lg-3 col-md-3 col-sm-6 col-xs-6" name="b7" required="" aria-required="true"></select>
+                            <select id="city" class="default_select col-lg-3 col-md-3 col-sm-6 col-xs-6" name="b8" required="" aria-required="true"></select>
+                            <select id="district" class="default_select col-lg-3 col-md-3 col-sm-6 col-xs-6" name="b9" required></select>
+                        </div>
+                        <!--选择/搜索学校-->
+                        <div class="tab-content col-12 float-left" id="schoolAndOrgContent" style="margin:1rem 0;">
+                            <div class="tab-pane active">
+                                <div class="row" id="schoolSelectBox">
+                                    <div class="col-md-6">
+                                        <div class="card card-orgs-reset">
+                                            <div class="card-header">可选择的学校</div>
+                                            <div class="card-body" id="schoolSelects1">
+                                                <!-- <dl class="province-list province-height" id="schoolSelect"></dl> -->
+                                                <input type="text" class="form-control form-control-sm filter_region mb-1" placeholder="根据地区名称过滤">
+                                                <div id="schoolSelect" class="schs-list">
+                                                    <ul></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card card-orgs-reset">
+                                            <div class="card-header">您选择的学校<span class="selectSchsNotNull error" style="color: #f00;display:none;">请选择学校和机构</span>
+                                                <button class="fr blueBorderWhiteBg" onclick="jggl.leadingIn(1);return false;">批量导入关联</button>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- <ul class="org-list"></ul> -->
+                                                <div id="schoolSelectResult" class="org-list">
+                                                    <ul></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newly_center_button_div">
+                            <button class="default_btn" onclick="jggl.newly_btn()">创建</button>
+                            <button class="default_btn anti_btn clicked" type="reset">重置</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </article>
+        <!--学校创建结束-->
+    </div>
+</div>
+
+<script type="text/html" id="jggl_template">
+    <form id="jggl" onsubmit="return false"><input type="hidden" id="code" />
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">名称<em class="star_em"></em></label><input type="text" class="default_input" id="inputtext_01" placeholder="名称" name="p1" required /></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">代码<em class="star_em"></em></label><input type="text" class="default_input" id="inputtext_02" name="p2" required /> </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">机构别名</label><input type="text" class="default_input" id="inputtext_03" /> </div>
+        <div class="col-lg-6 -col-md-6 col-sm-12 col-xs-12"><label class="allwidth_label">机构类型<em class="star_em"></em></label><select id="jglx" class="default_select" required="" aria-required="true"></select></div>
+		<!--行政区划-->
+                        <div class="col-lg-12 -col-md-12 col-sm-12 col-xs-12">
+                            <label class="allwidth_label">行政区划<em class="star_em"></em></label>
+                            <select id="jg_se" class="default_select col-lg-3 col-md-3 col-sm-6 col-xs-6" name="b7" required="" aria-required="true"></select>
+                            <select id="jg_si" class="default_select col-lg-3 col-md-3 col-sm-6 col-xs-6" name="b8" required="" aria-required="true"></select>
+                            <select id="jg_xu" class="default_select col-lg-3 col-md-3 col-sm-6 col-xs-6" name="b9" required></select>
+                        </div>
+        <!--选择/搜索学校-->
+        <div class="tab-content col-12 float-left" id="pop_schoolAndOrgContent" style="margin:1rem 0;">
+            <div class="tab-pane active">
+                <div class="row" id="pop_schoolSelectBox">
+                    <div class="col-md-6">
+                        <div class="card card-orgs-reset">
+                            <div class="card-header">可选择的学校</div>
+                            <div class="card-body" id="schoolSelects1">
+                                <!-- <dl class="province-list province-height" id="schoolSelect"></dl> -->
+                                <input type="text" class="form-control form-control-sm filter_region mb-1" placeholder="根据地区名称过滤">
+                                <div id="pop_schoolSelect" class="schs-list">
+                                    <ul></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card card-orgs-reset">
+                            <div class="card-header">您选择的学校<span class="selectSchsNotNull error" style="color: #f00;display:none;">请选择学校和机构</span>
+                            <button class="fr blueBorderWhiteBg" onclick="jggl.leadingIn(2);return false;">批量导入关联</button>
+                            </div>
+                            <div class="card-body">
+                                <!-- <ul class="org-list"></ul> -->
+                                <div id="pop_schoolSelectResult" class="org-list">
+                                    <ul></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</script>
